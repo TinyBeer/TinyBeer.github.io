@@ -6,15 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2021 | Hexo</title>
+  <title>win10home上docker的部署 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/2021/index.html">
+  <meta name="description" content="一、docker简介​    Docker 是一个开源的应用容器引擎，基于 Go 语言 并遵从 Apache2.0 协议开源。 ​    Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="win10home上docker的部署">
+<meta property="og:url" content="http://example.com/2021/03/10/win10home%E4%B8%8Adocker%E7%9A%84%E9%83%A8%E7%BD%B2/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一、docker简介​    Docker 是一个开源的应用容器引擎，基于 Go 语言 并遵从 Apache2.0 协议开源。 ​    Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img.imgdb.cn/item/6048d2b65aedab222c861dca.png">
+<meta property="og:image" content="https://img.imgdb.cn/item/6048d2cd5aedab222c862aef.png">
+<meta property="og:image" content="https://img.imgdb.cn/item/6048d2e75aedab222c863983.png">
+<meta property="og:image" content="https://img.imgdb.cn/item/6048d2fb5aedab222c864540.png">
+<meta property="og:image" content="https://img.imgdb.cn/item/6048d30c5aedab222c864e75.png">
+<meta property="article:published_time" content="2021-03-10T11:34:31.000Z">
+<meta property="article:modified_time" content="2021-03-10T14:09:25.824Z">
 <meta property="article:author" content="Tiny Beer">
+<meta property="article:tag" content="随笔">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.imgdb.cn/item/6048d2b65aedab222c861dca.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -156,36 +167,181 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-win10home上docker的部署" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      win10home上docker的部署
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/10/win10home%E4%B8%8Adocker%E7%9A%84%E9%83%A8%E7%BD%B2/" class="archive-article-date">
+
+        
+        <a href="/2021/03/10/win10home%E4%B8%8Adocker%E7%9A%84%E9%83%A8%E7%BD%B2/" class="archive-article-date">
   	<time datetime="2021-03-10T11:34:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-10</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/10/win10home%E4%B8%8Adocker%E7%9A%84%E9%83%A8%E7%BD%B2/">win10home上docker的部署</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、docker简介"><a href="#一、docker简介" class="headerlink" title="一、docker简介"></a>一、docker简介</h2><p>​    Docker 是一个开源的应用容器引擎，基于 Go 语言 并遵从 Apache2.0 协议开源。</p>
+<p>​    Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。</p>
+<span id="more"></span>
 
-        <div class="article-info info-on-right">
-          
+<p>​    容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低。</p>
+<h3 id="Docker的应用场景"><a href="#Docker的应用场景" class="headerlink" title="Docker的应用场景"></a>Docker的应用场景</h3><ul>
+<li>Web 应用的自动化打包和发布。</li>
+<li>自动化测试和持续集成、发布。</li>
+<li>在服务型环境中部署和调整数据库或其他的后台应用。</li>
+<li>从头编译或者扩展现有的 OpenShift 或 Cloud Foundry 平台来搭建自己的 PaaS 环境。</li>
+</ul>
+<hr>
+<h3 id="Docker-的优点"><a href="#Docker-的优点" class="headerlink" title="Docker 的优点"></a>Docker 的优点</h3><p>​    Docker 是一个用于开发，交付和运行应用程序的开放平台。Docker 使您能够将应用程序与基础架构分开，从而可以快速交付软件。借助 Docker，您可以与管理应用程序相同的方式来管理基础架构。通过利用 Docker 的方法来快速交付，测试和部署代码，您可以大大减少编写代码和在生产环境中运行代码之间的延迟。</p>
+<h3 id="1、快速，一致地交付应用程序"><a href="#1、快速，一致地交付应用程序" class="headerlink" title="1、快速，一致地交付应用程序"></a>1、快速，一致地交付应用程序</h3><p>​    Docker 允许开发人员使用您提供的应用程序或服务的本地容器在标准化环境中工作，从而简化了开发的生命周期。</p>
+<p>​    容器非常适合持续集成和持续交付（CI / CD）工作流程，请考虑以下示例方案：</p>
+<ul>
+<li>您的开发人员在本地编写代码，并使用 Docker 容器与同事共享他们的工作。</li>
+<li>他们使用 Docker 将其应用程序推送到测试环境中，并执行自动或手动测试。</li>
+<li>当开发人员发现错误时，他们可以在开发环境中对其进行修复，然后将其重新部署到测试环境中，以进行测试和验证。</li>
+<li>测试完成后，将修补程序推送给生产环境，就像将更新的镜像推送到生产环境一样简单。</li>
+</ul>
+<h3 id="2、响应式部署和扩展"><a href="#2、响应式部署和扩展" class="headerlink" title="2、响应式部署和扩展"></a>2、响应式部署和扩展</h3><p>​    Docker 是基于容器的平台，允许高度可移植的工作负载。Docker 容器可以在开发人员的本机上，数据中心的物理或虚拟机上，云服务上或混合环境中运行。</p>
+<p>​    Docker 的可移植性和轻量级的特性，还可以使您轻松地完成动态管理的工作负担，并根据业务需求指示，实时扩展或拆除应用程序和服务。</p>
+<h3 id="3、在同一硬件上运行更多工作负载"><a href="#3、在同一硬件上运行更多工作负载" class="headerlink" title="3、在同一硬件上运行更多工作负载"></a>3、在同一硬件上运行更多工作负载</h3><p>​    Docker 轻巧快速。它为基于虚拟机管理程序的虚拟机提供了可行、经济、高效的替代方案，因此您可以利用更多的计算能力来实现业务目标。Docker 非常适合于高密度环境以及中小型部署，而您可以用更少的资源做更多的事情。</p>
+<h2 id="二、win10home上docker的安装"><a href="#二、win10home上docker的安装" class="headerlink" title="二、win10home上docker的安装"></a>二、win10home上docker的安装</h2><h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><ul>
+<li><p>win10版本1903及以上</p>
+</li>
+<li><p>开启WSL2功能 参考 <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">https://docs.microsoft.com/en-us/windows/wsl/install-win10</a></p>
+<p>手动操作流程</p>
+<ul>
+<li>在powershell执行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dism.exe &#x2F;online &#x2F;enable-feature &#x2F;featurename:Microsoft-Windows-Subsystem-Linux &#x2F;all &#x2F;norestart</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://img.imgdb.cn/item/6048d2b65aedab222c861dca.png"><img src="https://img.imgdb.cn/item/6048d2b65aedab222c861dca.png"></a></p>
+<ul>
+<li>在powershell执行下方指令  开启虚拟机功能</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dism.exe &#x2F;online &#x2F;enable-feature &#x2F;featurename:VirtualMachinePlatform &#x2F;all &#x2F;norestart</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>下载linux内核更新包 连接如下 安装前记得重启下</p>
+<p><a target="_blank" rel="noopener" href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">WSL2 Linux kernel update package for x64 machines</a></p>
+</li>
+<li><p>将WSL 2设为默认版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --set-default-version 2</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h3 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h3><p> <a target="_blank" rel="noopener" href="https://hub.docker.com/editions/community/docker-ce-desktop-windows">https://hub.docker.com/editions/community/docker-ce-desktop-windows</a></p>
+<p>点击exe安装即可</p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><ul>
+<li>查验版本号</li>
+</ul>
+<p>在终端执行<code>docker -v</code>指令，正确返回docker版本信息</p>
+<p><a target="_blank" rel="noopener" href="https://img.imgdb.cn/item/6048d2cd5aedab222c862aef.png"><img src="https://img.imgdb.cn/item/6048d2cd5aedab222c862aef.png"></a></p>
+<ul>
+<li>运行hello world，执行<code>docker run hello-world</code>指令</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://img.imgdb.cn/item/6048d2e75aedab222c863983.png"><img src="https://img.imgdb.cn/item/6048d2e75aedab222c863983.png"></a></p>
+<p>测试成功</p>
+<h3 id="docker镜像加速"><a href="#docker镜像加速" class="headerlink" title="docker镜像加速"></a>docker镜像加速</h3><p>国内从 DockerHub 拉取镜像有时会遇到困难，此时可以配置镜像加速器。Docker 官方和国内很多云服务商都提供了国内加速器服务，例如：</p>
+<ul>
+<li><p>科大镜像：<strong><a target="_blank" rel="noopener" href="https://docker.mirrors.ustc.edu.cn/">https://docker.mirrors.ustc.edu.cn/</a></strong></p>
+</li>
+<li><p>网易：<strong><a target="_blank" rel="noopener" href="https://hub-mirror.c.163.com/">https://hub-mirror.c.163.com/</a></strong></p>
+</li>
+<li><p>阿里云：<strong>https://&lt;你的ID&gt;.mirror.aliyuncs.com</strong></p>
+</li>
+<li><p>七牛云加速器：<strong><a target="_blank" rel="noopener" href="https://reg-mirror.qiniu.com/">https://reg-mirror.qiniu.com</a></strong></p>
+</li>
+</ul>
+<p>​        对于使用 Windows 10 的系统，在系统右下角托盘 Docker 图标内右键菜单选择Settings，打开配置窗口后左侧导航菜单选择 Daemon。在 Registrymirrors 一栏中填写加速器地址 <strong><a target="_blank" rel="noopener" href="https://docker.mirrors.ustc.edu.cn/">https://docker.mirrors.ustc.edu.cn/</a></strong> ，之后点击 Apply 保存后 Docker 就会重启并应用配置的镜像地址了。</p>
+<p><a target="_blank" rel="noopener" href="https://img.imgdb.cn/item/6048d2fb5aedab222c864540.png"><img src="https://img.imgdb.cn/item/6048d2fb5aedab222c864540.png"></a></p>
+<h3 id="检查加速器是否生效"><a href="#检查加速器是否生效" class="headerlink" title="检查加速器是否生效"></a>检查加速器是否生效</h3><p>​        检查加速器是否生效配置加速器之后，如果拉取镜像仍然十分缓慢，请手动检查加速器配置是否生效，在命令行执行 <strong>docker info</strong>，如果从结果中看到了如下内容，说明配置成功。</p>
+<p><a target="_blank" rel="noopener" href="https://img.imgdb.cn/item/6048d30c5aedab222c864e75.png"><img src="https://img.imgdb.cn/item/6048d30c5aedab222c864e75.png"></a></p>
+<h3 id="常见错误处理"><a href="#常见错误处理" class="headerlink" title="常见错误处理"></a>常见错误处理</h3><ul>
+<li><p>关于使用WSL2出现“参考的对象类型不支持尝试的操作”的解决方法</p>
+<p>以管理员身份运行CMD，输入：<code>netsh winsock reset</code>重启计算机即可修复。</p>
+</li>
+</ul>
+<h2 id="三、docker基础操作"><a href="#三、docker基础操作" class="headerlink" title="三、docker基础操作"></a>三、docker基础操作</h2><h4 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h4><table>
+<thead>
+<tr>
+<th align="center">指令</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">docker search</td>
+<td align="center">查找镜像</td>
+</tr>
+<tr>
+<td align="center">docker images</td>
+<td align="center">查看本地镜像</td>
+</tr>
+<tr>
+<td align="center">docker pull</td>
+<td align="center">拉取远端镜像</td>
+</tr>
+<tr>
+<td align="center">docker run</td>
+<td align="center">使用镜像创建容器并运行</td>
+</tr>
+<tr>
+<td align="center">docker ps</td>
+<td align="center">查看本地已创建的容器</td>
+</tr>
+<tr>
+<td align="center">docker kill / stop</td>
+<td align="center">停止一个或多个运行中的容器</td>
+</tr>
+<tr>
+<td align="center">docker start / restart</td>
+<td align="center">启动或重启一个或多个容器</td>
+</tr>
+<tr>
+<td align="center">docker cp</td>
+<td align="center">docker容器之间复制</td>
+</tr>
+<tr>
+<td align="center">docker/exec</td>
+<td align="center">进入运行在后台的容器（exec退出后不停止）</td>
+</tr>
+</tbody></table>
+<p>待完善。。。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -197,84 +353,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/03/10/win10home%E4%B8%8Adocker%E7%9A%84%E9%83%A8%E7%BD%B2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/10/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2021-03-10T07:36:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-10</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2021/03/10/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hexo博客搭建</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/10/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">Hexo博客搭建</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/10/hello-world/" class="archive-article-date">
-  	<time datetime="2021-03-10T05:07:47.890Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/10/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -297,8 +475,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
