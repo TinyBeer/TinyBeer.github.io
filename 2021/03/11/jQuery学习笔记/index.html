@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>jQuery学习笔记 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="jQuery学习笔记第一章 初识jQuery一、背景1.原生js的缺点1.添加多个入口函数时候不方便。 2.api名字长，难以记忆。 3.代码冗余度大。 4.有浏览器兼容性问题。 5.容错率低，出现错误后续代码不执行。">
+  <meta name="description" content="第一章 初识jQuery一、背景1.原生js的缺点1.添加多个入口函数时候不方便。 2.api名字长，难以记忆。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jQuery学习笔记">
 <meta property="og:url" content="http://example.com/2021/03/11/jQuery%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="jQuery学习笔记第一章 初识jQuery一、背景1.原生js的缺点1.添加多个入口函数时候不方便。 2.api名字长，难以记忆。 3.代码冗余度大。 4.有浏览器兼容性问题。 5.容错率低，出现错误后续代码不执行。">
+<meta property="og:description" content="第一章 初识jQuery一、背景1.原生js的缺点1.添加多个入口函数时候不方便。 2.api名字长，难以记忆。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-11T09:33:04.000Z">
-<meta property="article:modified_time" content="2021-03-11T09:40:28.808Z">
+<meta property="article:modified_time" content="2021-03-11T13:53:35.709Z">
 <meta property="article:author" content="Tiny Beer">
 <meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary">
@@ -62,7 +62,7 @@
 	        
 				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
 	        
-				<li><a href="/tags/%E5%AD%A6%E4%B9%A0/">学习笔记</a></li>
+				<li><a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></li>
 	        
 			</ul>
 		</nav>
@@ -146,7 +146,7 @@
 		        
 					<li style="width: 33.333333333333336%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/%E5%AD%A6%E4%B9%A0/">学习笔记</a></li>
+					<li style="width: 33.333333333333336%"><a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></li>
 		        
 				</ul>
 			</nav>
@@ -181,13 +181,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="jQuery学习笔记"><a href="#jQuery学习笔记" class="headerlink" title="jQuery学习笔记"></a>jQuery学习笔记</h1><h2 id="第一章-初识jQuery"><a href="#第一章-初识jQuery" class="headerlink" title="第一章 初识jQuery"></a>第一章 初识jQuery</h2><h3 id="一、背景"><a href="#一、背景" class="headerlink" title="一、背景"></a>一、背景</h3><h4 id="1-原生js的缺点"><a href="#1-原生js的缺点" class="headerlink" title="1.原生js的缺点"></a>1.原生js的缺点</h4><p>1.添加多个入口函数时候不方便。</p>
+        <h2 id="第一章-初识jQuery"><a href="#第一章-初识jQuery" class="headerlink" title="第一章 初识jQuery"></a>第一章 初识jQuery</h2><h3 id="一、背景"><a href="#一、背景" class="headerlink" title="一、背景"></a>一、背景</h3><h4 id="1-原生js的缺点"><a href="#1-原生js的缺点" class="headerlink" title="1.原生js的缺点"></a>1.原生js的缺点</h4><p>1.添加多个入口函数时候不方便。</p>
 <p>2.api名字长，难以记忆。</p>
+ <span id="more"></span>
+
 <p>3.代码冗余度大。</p>
 <p>4.有浏览器兼容性问题。</p>
 <p>5.容错率低，出现错误后续代码不执行。</p>
-   <span id="more"></span>
-
 <h4 id="2-jquery的优点"><a href="#2-jquery的优点" class="headerlink" title="2.jquery的优点"></a>2.jquery的优点</h4><p>1.可以写多个入口函数<br>2.api简介，易于使用<br>3.代码简介，冗余度低（隐式迭代）<br>4.解决了浏览器兼容性问题<br>5.容错率高，前面代码的问题，对后续代码影响小。</p>
 <h4 id="3-一些说明"><a href="#3-一些说明" class="headerlink" title="3.一些说明"></a>3.一些说明</h4><p>​    jQuer是封装了很多方法的js库，学习jQuery的本质就是学习其中的API的使用。</p>
 <h3 id="二、使用jQuery"><a href="#二、使用jQuery" class="headerlink" title="二、使用jQuery"></a>二、使用jQuery</h3><h4 id="1-jQuery的下载"><a href="#1-jQuery的下载" class="headerlink" title="1.jQuery的下载"></a>1.jQuery的下载</h4><p>​    <a target="_blank" rel="noopener" href="https://jquery.com/download/">下载地址</a></p>
@@ -492,6 +492,78 @@
 <h4 id="11-移除元素"><a href="#11-移除元素" class="headerlink" title="11.移除元素"></a>11.移除元素</h4><ul>
 <li>清空 empty    <code>$(&#39;#ul1&#39;).empty();</code></li>
 <li>移除 remove <code>$(&#39;#li3&#39;).remove();</code></li>
+</ul>
+<h4 id="12-克隆"><a href="#12-克隆" class="headerlink" title="12.克隆"></a>12.克隆</h4><p><code>clone</code> 克隆所有子孙元素在内存中  需要追加进容器中</p>
+<p><code>$cdiv = $(&#39;#div1&#39;).clone()</code></p>
+<p>参数为bool类型，是否克隆事件，默认克隆   </p>
+<p><code>var $cdiv = $(&#39;#div1&#39;).clone(true);</code></p>
+<h4 id="13-操作表单元素的值"><a href="#13-操作表单元素的值" class="headerlink" title="13.操作表单元素的值"></a>13.操作表单元素的值</h4><p>​    val方法  </p>
+<p>​    不添加参数就是获取 <code>$(&#39;#txt&#39;).val()</code></p>
+<p>​    添加参数  就是设置 <code>$(&quot;#txt&quot;).val(&quot;我是设置的值&quot;);</code></p>
+<p>14.操作属性</p>
+<p>​    attr方法</p>
+<p>​    获取属性 <code>console.log($(&#39;img&#39;).attr(&quot;src&quot;)); </code></p>
+<p>​    设置单个属性 <code>$(&#39;img&#39;).attr(&#39;src&#39;, &#39;img/2.jpg&#39;); </code></p>
+<p>​    设置多个属性 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;img&#39;).attr(&#123;</span><br><span class="line">               src : &quot;img&#x2F;2.jpg&quot;,</span><br><span class="line">               aaa : &#39;hahaha&#39;,</span><br><span class="line">               bbb : &#39;bbb&#39;</span><br><span class="line">           &#125;); </span><br></pre></td></tr></table></figure>
+
+<p>​    removeAttr方法</p>
+<p>​    移除单个属性 <code> $(&#39;img&#39;).removeAttr(&#39;alt&#39;);</code></p>
+<p>​    移除多个属性 <code>$(&#39;img&#39;).removeAttr(&#39;alt aaa bbb&#39;);</code></p>
+<h4 id="14-操作布尔属性"><a href="#14-操作布尔属性" class="headerlink" title="14.操作布尔属性"></a>14.操作布尔属性</h4><p>​    jQuery 1.6以后只能使用<code>prop</code>方法进行，不能再使用<code>attr</code>方法</p>
+<p>​    <code>$(&#39;#chb1&#39;).prop(&#39;checked&#39;);</code></p>
+<h4 id="15-宽高的操作"><a href="#15-宽高的操作" class="headerlink" title="15.宽高的操作"></a>15.宽高的操作</h4><ul>
+<li><h5 id="元素"><a href="#元素" class="headerlink" title="元素"></a>元素</h5></li>
+</ul>
+<p>​        不含padding border margin的宽度<code>console.log($(&#39;#one&#39;).width());</code></p>
+<p>​        不含padding border margin的高度<code>console.log($(&#39;#one&#39;).height());</code></p>
+<p>​        含padding的宽度 <code> console.log($(&#39;#one&#39;).innerWidth());</code></p>
+<p>​        含padding的高度 <code> console.log($(&#39;#one&#39;).innerHeight());</code></p>
+<p>​        不含margin的宽度 <code>console.log($(&#39;#one&#39;).outerWidth());</code></p>
+<p>​        不含margin的高度 <code>console.log($(&#39;#one&#39;).outerHeight());</code></p>
+<p>​        总宽度 <code>console.log($(&#39;#one&#39;).outerWidth(true));</code></p>
+<p>​        总高度 <code> console.log($(&#39;#one&#39;).outerHeight(true));</code></p>
+<ul>
+<li><h5 id="页面"><a href="#页面" class="headerlink" title="页面"></a>页面</h5><p>​    可视区域宽度 <code> console.log($(window).width());</code></p>
+<p>​    可是区域高度 <code>console.log($(window).height());</code></p>
+</li>
+</ul>
+<h4 id="16-offset和position方法"><a href="#16-offset和position方法" class="headerlink" title="16.offset和position方法"></a>16.offset和position方法</h4><p>​        offset: 获取相对document的位置  left top</p>
+<p>​        <code> console.log($(&#39;#son&#39;).offset());</code></p>
+<p>​        position: 获取相对于parent的位置 left top</p>
+<p>​        <code>console.log($(&#39;#son&#39;).position());</code></p>
+<h4 id="17-滚动条"><a href="#17-滚动条" class="headerlink" title="17.滚动条"></a>17.滚动条</h4><ul>
+<li><p>scrollTop</p>
+<p>获取： <code>console.log($(&#39;div&#39;).scrollTop());</code></p>
+<p>设置： <code>$(&#39;div&#39;).scrollTop(50);</code></p>
+</li>
+<li><p>scrollLeft</p>
+<p>获取： <code>console.log($(&#39;div&#39;).scrollLeft());</code></p>
+<p>设置：<code> $(&#39;div&#39;).scrollLeft(50);</code></p>
+</li>
+</ul>
+<h4 id="18-事件注册"><a href="#18-事件注册" class="headerlink" title="18.事件注册"></a>18.事件注册</h4><ul>
+<li>简单注册 不支持同时注册  不支持动态注册</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;#btn&#39;).click(function() &#123;</span><br><span class="line">            var $divNew &#x3D; $(&#39;&lt;div class&#x3D;&quot;two&quot;&gt;&lt;&#x2F;div&gt;&#39;);</span><br><span class="line">            $(&#39;body&#39;).append($divNew);</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>bind方法  支持同时注册  不支持动态注册</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;div&#39;).bind(&#123;</span><br><span class="line">           mouseenter : function()&#123;</span><br><span class="line">               console.log(&#39;鼠标移入事件&#39;);</span><br><span class="line">           &#125;,</span><br><span class="line">           click : function() &#123;</span><br><span class="line">               console.log(&#39;鼠标点击事件&#39;);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       );</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>delegate方法  支持同时注册和动态注册 基于事件冒泡机制</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;body&#39;).delegate(&#39;div&#39;, &#123;</span><br><span class="line">            mouseenter : function()&#123;</span><br><span class="line">                console.log(&#39;鼠标移入事件&#39;);</span><br><span class="line">            &#125;,</span><br><span class="line">            click : function() &#123;</span><br><span class="line">                 console.log(&#39;鼠标点击事件&#39;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>on方法  统一了事件注册(jQuery1.7以后)</p>
+<p>普通注册方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;div&#39;).on(&#39;click&#39;, function() &#123;</span><br><span class="line">         console.log(&#39;鼠标点击事件&#39;);</span><br><span class="line">     &#125;);</span><br></pre></td></tr></table></figure>
+
+<p>委托注册方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;body&#39;).on(&#39;click&#39;, &#39;div&#39;, function()&#123;</span><br><span class="line">           console.log(&#39;鼠标点击事件&#39;);</span><br><span class="line">       &#125;);</span><br><span class="line"> &#x2F;&#x2F; 注意this表示注册事件的元素   不是父元素</span><br></pre></td></tr></table></figure></li>
 </ul>
 
       
