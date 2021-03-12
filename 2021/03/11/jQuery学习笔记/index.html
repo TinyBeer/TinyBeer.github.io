@@ -16,7 +16,7 @@
 <meta property="og:description" content="第一章 初识jQuery一、背景1.原生js的缺点1.添加多个入口函数时候不方便。 2.api名字长，难以记忆。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-11T09:33:04.000Z">
-<meta property="article:modified_time" content="2021-03-11T13:53:35.709Z">
+<meta property="article:modified_time" content="2021-03-12T04:21:20.006Z">
 <meta property="article:author" content="Tiny Beer">
 <meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary">
@@ -242,7 +242,7 @@
 </li>
 </ul>
 <p><code> Uncaught ReferenceError: $ is not defined</code></p>
-<h4 id="4-dom对象和jQuery对象"><a href="#4-dom对象和jQuery对象" class="headerlink" title="4.dom对象和jQuery对象"></a>4.dom对象和jQuery对象</h4><ul>
+<h4 id="4-dom和jQuery对象"><a href="#4-dom和jQuery对象" class="headerlink" title="4.dom和jQuery对象"></a>4.dom和jQuery对象</h4><ul>
 <li><p>dom对象：原生js选择器获取到的对象，只能调用dom方法或属性，如</p>
 <ul>
 <li>document.getElementById</li>
@@ -548,22 +548,76 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;#btn&#39;).click(function() &#123;</span><br><span class="line">            var $divNew &#x3D; $(&#39;&lt;div class&#x3D;&quot;two&quot;&gt;&lt;&#x2F;div&gt;&#39;);</span><br><span class="line">            $(&#39;body&#39;).append($divNew);</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>bind方法  支持同时注册  不支持动态注册</li>
+<li>bind方法  支持同时注册  不支持动态注册  解绑使用<code>unbind</code></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;div&#39;).bind(&#123;</span><br><span class="line">           mouseenter : function()&#123;</span><br><span class="line">               console.log(&#39;鼠标移入事件&#39;);</span><br><span class="line">           &#125;,</span><br><span class="line">           click : function() &#123;</span><br><span class="line">               console.log(&#39;鼠标点击事件&#39;);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       );</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>delegate方法  支持同时注册和动态注册 基于事件冒泡机制</li>
+<li>delegate方法  支持同时注册和动态注册 基于事件冒泡机制  解绑使用<code>undelegate</code></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;body&#39;).delegate(&#39;div&#39;, &#123;</span><br><span class="line">            mouseenter : function()&#123;</span><br><span class="line">                console.log(&#39;鼠标移入事件&#39;);</span><br><span class="line">            &#125;,</span><br><span class="line">            click : function() &#123;</span><br><span class="line">                 console.log(&#39;鼠标点击事件&#39;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><p>on方法  统一了事件注册(jQuery1.7以后)</p>
+<li><p>on方法  统一了事件注册(jQuery1.7以后)   可以注册自定义事件  使用off解绑</p>
 <p>普通注册方法</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;div&#39;).on(&#39;click&#39;, function() &#123;</span><br><span class="line">         console.log(&#39;鼠标点击事件&#39;);</span><br><span class="line">     &#125;);</span><br></pre></td></tr></table></figure>
 
 <p>委托注册方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;body&#39;).on(&#39;click&#39;, &#39;div&#39;, function()&#123;</span><br><span class="line">           console.log(&#39;鼠标点击事件&#39;);</span><br><span class="line">       &#125;);</span><br><span class="line"> &#x2F;&#x2F; 注意this表示注册事件的元素   不是父元素</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;body&#39;).on(&#39;click&#39;, &#39;div&#39;, function()&#123;</span><br><span class="line">           console.log(&#39;鼠标点击事件&#39;);</span><br><span class="line">       &#125;);</span><br><span class="line"> &#x2F;&#x2F; 注意this表示注册事件的元素   不是父元素</span><br></pre></td></tr></table></figure>
+
+<p>解绑事件  <code>off</code>方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;#one&#39;).off(); &#x2F;&#x2F; 解绑所有事件</span><br><span class="line">$(&#39;#one&#39;).off(&#39;click&#39;);  &#x2F;&#x2F; 解绑指定事件</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="19-事件触发"><a href="#19-事件触发" class="headerlink" title="19.事件触发"></a>19.事件触发</h4><p>​    <code>$(&#39;#one&#39;).click();</code>：触发id为one元素的click事件</p>
+<p>​    <code>     $(&#39;#one&#39;).trigger(&#39;click&#39;);</code> ：使用trigger方法触发click事件 可以触发自定事件</p>
+<h4 id="20-事件对象"><a href="#20-事件对象" class="headerlink" title="20.事件对象"></a>20.事件对象</h4><ul>
+<li><p>获取事件对象  常用坐标</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;#one&#39;).on(&#39;click&#39;, function(event)&#123;</span><br><span class="line">            &#x2F;&#x2F; console.log(event);</span><br><span class="line">            &#x2F;&#x2F; 常用的事件坐标</span><br><span class="line">            console.log(&#39;ScreenX: &#39; + event.screenX);</span><br><span class="line">            console.log(&#39;ScreenY: &#39; + event.screenY);</span><br><span class="line">            console.log(&#39;ClientX: &#39; + event.clientX);</span><br><span class="line">            console.log(&#39;ClientX: &#39; + event.clientY);</span><br><span class="line">            console.log(&#39;PageX: &#39; + event.pageX);</span><br><span class="line">            console.log(&#39;PageY: &#39; + event.pageY);</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
+
+<p>screenX screenY：屏幕坐标</p>
+<p>clientX clientY: 可视区坐标</p>
+<p>pageX pageY: 页面坐标</p>
+</li>
+<li><p>阻止事件冒泡</p>
+<p><code>event.stopPropagation();// 阻止事件冒泡</code></p>
+</li>
+<li><p>阻止默认行为</p>
+<p><code>event.preventDefault();</code></p>
+</li>
+<li><p>阻止冒泡和默认行为</p>
+<p><code>return false;</code></p>
+</li>
+<li><p>获取键盘输入ASCII</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(document).on(&#39;keydown&#39;, function(event)&#123;</span><br><span class="line">            console.log(event.keyCode);</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="21-end方法-慎用"><a href="#21-end方法-慎用" class="headerlink" title="21.end方法 慎用"></a>21.end方法 慎用</h4><p>​    链式编程中回到上一个状态获取的jQuery对象， 必须要是jQuery对象才能用。</p>
+<p>​    可以连续使用</p>
+<h4 id="22-显示迭代"><a href="#22-显示迭代" class="headerlink" title="22.显示迭代"></a>22.显示迭代</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$(function()&#123;</span><br><span class="line">        var $lis &#x3D;  $(&#39;#ulList&#39;).children();</span><br><span class="line">        $lis.each(function(index, element)&#123;</span><br><span class="line">        $(element).css(&#39;opacity&#39;, (index+1)&#x2F;10);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>用于设置不同内容  相同内容用隐式迭代即可</p>
+<h4 id="23-多库共存"><a href="#23-多库共存" class="headerlink" title="23.多库共存"></a>23.多库共存</h4><ul>
+<li>​    四种方法查看版本号：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">console.log(jQuery.fn.jquery);</span><br><span class="line">console.log(jQuery.prototype.jquery);</span><br><span class="line">console.log($.fn.jquery);</span><br><span class="line">console.log($.prototype.jquery);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>引入多个jQuery文件  </p>
+<p>后引入的为$实际版本</p>
+<p>解决多库共存</p>
+<ul>
+<li>两个库</li>
+</ul>
+<p><code> var _$ = $.noConflict(); // 释放版本控制权  jQuery任然为原版本</code> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(function($)&#123;</span><br><span class="line">        &#x2F;&#x2F; 老代码</span><br><span class="line">    &#125;(_$));&#x2F;&#x2F; 老代码兼容处理</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>多个库</p>
+<p>版本有jQuer库引入顺序决定</p>
+<p>逐步释放标记即可实现多库共存</p>
+<p><code> var _$ = $.noConflict(); // 释放版本控制权  jQuery任然为原版本</code></p>
+</li>
+</ul>
+</li>
 </ul>
 
       
