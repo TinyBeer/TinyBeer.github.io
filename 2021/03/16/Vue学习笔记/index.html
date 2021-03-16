@@ -17,7 +17,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://img.imgdb.cn/item/60503f395aedab222c12833a.jpg">
 <meta property="article:published_time" content="2021-03-16T04:30:11.000Z">
-<meta property="article:modified_time" content="2021-03-16T05:26:01.460Z">
+<meta property="article:modified_time" content="2021-03-16T06:28:14.583Z">
 <meta property="article:author" content="Tiny Beer">
 <meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary">
@@ -169,6 +169,37 @@
           </div>
           <div id="js-content" class="content-ll">
             <article id="post-Vue学习笔记" class="article article-type-post " itemscope itemprop="blogPost">
+
+ <!-- 目录内容 -->
+ 
+  <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();">
+  <span class="btn-bg"></span>
+  <span class="btn-text">文章导航</span>
+  </p>
+  <div id="toc-article" class="toc-article"  style="display:none">
+      <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+      <strong class="toc-title">文章目录</strong>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B5%B7%E6%AD%A5"><span class="toc-number">1.</span> <span class="toc-text">起步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue%E5%AE%9E%E4%BE%8B"><span class="toc-number">2.</span> <span class="toc-text">Vue实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E6%95%B4%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text">指令整理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#v-text-%E5%92%8C-v-html"><span class="toc-number">3.1.</span> <span class="toc-text">v-text 和 v-html</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#v-on%E6%8C%87%E4%BB%A4"><span class="toc-number">3.2.</span> <span class="toc-text">v-on指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#v-show%E6%8C%87%E4%BB%A4"><span class="toc-number">3.3.</span> <span class="toc-text">v-show指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#v-if%E6%8C%87%E4%BB%A4"><span class="toc-number">3.4.</span> <span class="toc-text">v-if指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#v-bind%E6%8C%87%E4%BB%A4"><span class="toc-number">3.5.</span> <span class="toc-text">v-bind指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#v-for%E6%8C%87%E4%BB%A4"><span class="toc-number">3.6.</span> <span class="toc-text">v-for指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#v-model%E6%8C%87%E4%BB%A4"><span class="toc-number">3.7.</span> <span class="toc-text">v-model指令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue-Axios%E6%A1%88%E4%BE%8B"><span class="toc-number">4.</span> <span class="toc-text">Vue+Axios案例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E6%98%93%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2%E6%A1%88%E4%BE%8B%EF%BC%9A"><span class="toc-number">5.</span> <span class="toc-text">简易登录界面案例：</span></a></li></ol>
+ </div>
+ <script type="text/javascript">
+  function showToc(){
+      var toc_article = document.getElementById("toc-article");
+      var show_toc_btn = document.getElementById("show-toc-btn");
+      toc_article.setAttribute("style","display:block");
+      show_toc_btn.setAttribute("style","display:none");
+      };
+  function showBtn(){
+      var toc_article = document.getElementById("toc-article");
+      var show_toc_btn = document.getElementById("show-toc-btn");
+      toc_article.setAttribute("style","display:none");
+      show_toc_btn.setAttribute("style","display:block");
+      };
+ </script>
+     
+<!-- 目录内容结束 -->
+
+
+
   <div class="article-inner">
     
       <header class="article-header">
@@ -211,6 +242,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+      
         <p>​    Vue是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现代化的工具链以及各种支持类库结合使用时。</p>
 <span id="more"></span>
 
@@ -226,7 +258,6 @@
 <p>。。。</p>
 </li>
 </ul>
-<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p>[TOC]</p>
 <h3 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h3><p>​    根据<a target="_blank" rel="noopener" href="https://cn.vuejs.org/">官网</a>教程，起步学习。</p>
 <ul>
 <li><p>安装</p>
@@ -414,6 +445,19 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B5%B7%E6%AD%A5"><span class="toc-number">1.</span> <span class="toc-text">起步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue%E5%AE%9E%E4%BE%8B"><span class="toc-number">2.</span> <span class="toc-text">Vue实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E6%95%B4%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text">指令整理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#v-text-%E5%92%8C-v-html"><span class="toc-number">3.1.</span> <span class="toc-text">v-text 和 v-html</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#v-on%E6%8C%87%E4%BB%A4"><span class="toc-number">3.2.</span> <span class="toc-text">v-on指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#v-show%E6%8C%87%E4%BB%A4"><span class="toc-number">3.3.</span> <span class="toc-text">v-show指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#v-if%E6%8C%87%E4%BB%A4"><span class="toc-number">3.4.</span> <span class="toc-text">v-if指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#v-bind%E6%8C%87%E4%BB%A4"><span class="toc-number">3.5.</span> <span class="toc-text">v-bind指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#v-for%E6%8C%87%E4%BB%A4"><span class="toc-number">3.6.</span> <span class="toc-text">v-for指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#v-model%E6%8C%87%E4%BB%A4"><span class="toc-number">3.7.</span> <span class="toc-text">v-model指令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue-Axios%E6%A1%88%E4%BE%8B"><span class="toc-number">4.</span> <span class="toc-text">Vue+Axios案例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E6%98%93%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2%E6%A1%88%E4%BE%8B%EF%BC%9A"><span class="toc-number">5.</span> <span class="toc-text">简易登录界面案例：</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -453,7 +497,6 @@
   
 
   
-
 
           </div>
         </div>
