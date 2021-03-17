@@ -39,6 +39,37 @@
       background: linear-gradient(200deg,#a0cfe4,#e8c37e);
     }
   </style>
+
+  <!-- Js控制Loding特效-->
+<script>
+var loadingCounter = 0;
+var loadingTimer=self.setInterval(function clock()
+{ 
+  loadingCounter++;
+  if (document.readyState != "loading" || loadingCounter > 10){
+    document.getElementById("loader-wrapper").style.visibility= "hidden";
+     window.clearInterval(loadingTimer);
+  }
+},100);
+
+
+
+  // //监听加载状态改变
+  // document.onreadystatechange = finishLoading;
+  // //加载状态为interactive时移除loading效果
+  // function finishLoading() {
+  //   console.log("loading time " +  window.performance.timing.domContentLoadedEventEnd-window.performance.timing.navigationStart);
+  //     if (document.readyState != "loading") {
+  //         //interactive（可交互状态）：文档已被解析，"正在加载"状态结束，但是诸如图像，样式表和框架之类的子资源仍在加载。
+  //         //如果你的网页资源较少，可以换用complete（文档和所有子资源已完成加载）
+  //         $("#loader-wrapper").hide();
+  //     }
+  // }  
+</script>
+<!-- loading结束 -->
+
+
+
   
 
   
@@ -46,6 +77,18 @@
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
+
+  <!-- 加载幕布 -->
+  <div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+    <!-- <div class="load_title">Loading. . .<br></div> -->
+</div>
+
+
+
+
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
@@ -498,15 +541,6 @@
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
         
         <div class="toc-container tooltip-left">
             <i class="icon-font icon-category"></i>
@@ -570,10 +604,10 @@
     	<div class="footer-left">
     		&copy; 2021 Tiny Beer 
     	</div>
-		<span id="busuanzi_container_site_pv">
-			<div class="padding border border-sub border-dotted fadein-right">
-				您是本站第<span id="busuanzi_value_site_pv"></span>位访客
-			</div>
+		<span>
+			<script async type="text/javascript" src="/tinybeer.github.io/./busuanzi.js"></script>
+			<!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+            <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
 	   </span>
 	
       	<div class="footer-right">
@@ -584,7 +618,7 @@
 </footer>
 <!--页面点击小红心-->
 <script type="text/javascript" src="/tinybeer.github.io/./love.js"></script>
-<script async src="//https://www.ideal-20.cn/libs/others/busuanzi.pure.mini.js"></script>
+
     </div>
     <script>
 	var yiliaConfig = {
@@ -747,7 +781,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">一只&lt;br&gt;&lt;br&gt; 误入歧途的程序汪</div>
   	  	
     	</section>
     
