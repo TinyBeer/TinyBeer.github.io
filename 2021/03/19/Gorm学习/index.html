@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github.com/tinybeer.github.io">
-  <title>Archives: 2021 | 困</title>
+  <title>Gorm学习 | 困</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="困">
-<meta property="og:url" content="https://github.com/tinybeer.github.io/archives/2021/index.html">
+  <meta name="description" content="​       Gorm是一个使用Go语言编写的ORM框架。它文档(多语种)齐全，对开发者友好。支持主流关系型数据库(支持SQL语句)，入MySQL,MSSQL,PostgreSQL等。使用Gorm秩序简单的几个函数调用就可实现对数据库复杂操作，极大的提高开发效率，降低开发门槛。 官网连接">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gorm学习">
+<meta property="og:url" content="https://github.com/tinybeer.github.io/2021/03/19/Gorm%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="困">
+<meta property="og:description" content="​       Gorm是一个使用Go语言编写的ORM框架。它文档(多语种)齐全，对开发者友好。支持主流关系型数据库(支持SQL语句)，入MySQL,MSSQL,PostgreSQL等。使用Gorm秩序简单的几个函数调用就可实现对数据库复杂操作，极大的提高开发效率，降低开发门槛。 官网连接">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-19T09:12:42.000Z">
+<meta property="article:modified_time" content="2021-03-19T09:13:26.556Z">
 <meta property="article:author" content="Tiny Beer">
+<meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="困" type="application/atom+xml">
@@ -204,36 +209,183 @@ var loadingTimer=self.setInterval(function clock()
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Gorm学习" class="article article-type-post " itemscope itemprop="blogPost">
+
+ <!-- 目录内容 -->
+ 
+  <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();">
+  <span class="btn-bg"></span>
+  <span class="btn-text">文章导航</span>
+  </p>
+  <div id="toc-article" class="toc-article"  style="display:none">
+      <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+      <strong class="toc-title">文章目录</strong>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AFORM%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">1.什么是ORM？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Gorm%E7%89%B9%E6%80%A7"><span class="toc-number">2.</span> <span class="toc-text">2.Gorm特性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8-MySql%E7%89%88"><span class="toc-number">3.</span> <span class="toc-text">3.简单入门(MySql版)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%8C%85"><span class="toc-number">3.1.</span> <span class="toc-text">安装包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81"><span class="toc-number">3.2.</span> <span class="toc-text">示例代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gorm%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.3.</span> <span class="toc-text">Gorm模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%A1%A8%E7%9A%84%E4%BF%A1%E6%81%AF"><span class="toc-number">3.4.</span> <span class="toc-text">创建表的信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="toc-number">3.5.</span> <span class="toc-text">常用指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E7%BB%93%E6%9E%84%E4%BD%93%E6%A0%87%E8%AE%B0-tag"><span class="toc-number">3.6.</span> <span class="toc-text">常用的结构体标记(tag)</span></a></li></ol></li></ol>
+ </div>
+ <script type="text/javascript">
+  function showToc(){
+      var toc_article = document.getElementById("toc-article");
+      var show_toc_btn = document.getElementById("show-toc-btn");
+      toc_article.setAttribute("style","display:block");
+      show_toc_btn.setAttribute("style","display:none");
+      };
+  function showBtn(){
+      var toc_article = document.getElementById("toc-article");
+      var show_toc_btn = document.getElementById("show-toc-btn");
+      toc_article.setAttribute("style","display:none");
+      show_toc_btn.setAttribute("style","display:block");
+      };
+ </script>
+     
+<!-- 目录内容结束 -->
+
+
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Gorm学习
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/tinybeer.github.io/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/tinybeer.github.io/2021/03/19/Gorm%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
+
+        
+        <a href="/tinybeer.github.io/2021/03/19/Gorm%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
   	<time datetime="2021-03-19T09:12:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-19</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/tinybeer.github.io/2021/03/19/Gorm%E5%AD%A6%E4%B9%A0/">Gorm学习</a>
-    </h1>
-  
+        
 
-        <div class="article-info info-on-right">
+         <!-- 开始添加字数统计-->
+         
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">1.3k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">5分</span>
+      </span>
+    </span>
+</div>
           
+        <!-- 添加完成 -->
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+        <p>​       Gorm是一个使用Go语言编写的ORM框架。它文档(多语种)齐全，对开发者友好。支持主流关系型数据库(支持SQL语句)，入MySQL,MSSQL,PostgreSQL等。使用Gorm秩序简单的几个函数调用就可实现对数据库复杂操作，极大的提高开发效率，降低开发门槛。</p>
+<p><a target="_blank" rel="noopener" href="https://gorm.io/">官网连接</a><span id="more"></span></p>
+<h1 id="1-什么是ORM？"><a href="#1-什么是ORM？" class="headerlink" title="1.什么是ORM？"></a>1.什么是ORM？</h1><p><strong>Object Relation Mapping（关系对象映射）</strong></p>
+<p>​        把对象模型表示的对象映射到基于SQL的关系模型数据库结构中，在具体的操作实体对象的时候，不需要直接与复杂的 SQL语句打交道，只需简单的操作实体对象的属性和方法，对于开发者更加友好，不必学习sql语句就可以方便地进行数据库的使用。对于一些中小型项目，使用ORM可以极大的提高开发效率，降低开发门槛。另外，也能在一定程度上防止sql注入。</p>
+<p>​    相应的也要以牺牲执行能力，牺牲灵活性，弱化SQL能力作为为代价。对于三高开发，并不推荐使用。</p>
+<h1 id="2-Gorm特性"><a href="#2-Gorm特性" class="headerlink" title="2.Gorm特性"></a>2.Gorm特性</h1><ul>
+<li>全功能 ORM</li>
+<li>关联 (Has One，Has Many，Belongs To，Many To Many，多态，单表继承)</li>
+<li>Create，Save，Update，Delete，Find 中钩子方法</li>
+<li>支持 <code>Preload</code>、<code>Joins</code> 的预加载</li>
+<li>事务，嵌套事务，Save Point，Rollback To Saved Point</li>
+<li>Context、预编译模式、DryRun 模式</li>
+<li>批量插入，FindInBatches，Find/Create with Map，使用 SQL 表达式、Context Valuer 进行 CRUD</li>
+<li>SQL 构建器，Upsert，数据库锁，Optimizer/Index/Comment Hint，命名参数，子查询</li>
+<li>复合主键，索引，约束</li>
+<li>Auto Migration</li>
+<li>自定义 Logger</li>
+<li>灵活的可扩展插件 API：Database Resolver（多数据库，读写分离）、Prometheus…</li>
+</ul>
+<h1 id="3-简单入门-MySql版"><a href="#3-简单入门-MySql版" class="headerlink" title="3.简单入门(MySql版)"></a>3.简单入门(MySql版)</h1><h2 id="安装包"><a href="#安装包" class="headerlink" title="安装包"></a>安装包</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> get -u gorm.io/gorm</span><br><span class="line"><span class="keyword">go</span> get gorm.io/driver/mysql</span><br></pre></td></tr></table></figure>
+
+<h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><p>根据官网代码修改的MySql数据库快速入门代码</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">  <span class="string">&quot;gorm.io/gorm&quot;</span></span><br><span class="line">  <span class="string">&quot;gorm.io/driver/sqlite&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 连接mysql所需信息</span></span><br><span class="line"><span class="keyword">var</span> (</span><br><span class="line">	<span class="comment">// 用户</span></span><br><span class="line">	user <span class="keyword">string</span> = <span class="string">&quot;root&quot;</span></span><br><span class="line">	<span class="comment">// 密码</span></span><br><span class="line">	pwd <span class="keyword">string</span> = <span class="string">&quot;123456&quot;</span></span><br><span class="line">	<span class="comment">// ip地址 带端口号</span></span><br><span class="line">	addr <span class="keyword">string</span> = <span class="string">&quot;localhost:3306&quot;</span></span><br><span class="line">	<span class="comment">// 数据库名</span></span><br><span class="line">	dbName <span class="keyword">string</span> = <span class="string">&quot;chart_room&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Product <span class="keyword">struct</span> &#123;</span><br><span class="line">  <span class="comment">// 官方提供的Model 作为匿名字段  包含 ID CreatedAt UpdatedAt DeletedAt四个字段</span></span><br><span class="line">  <span class="comment">// 其中ID为默认主键  DeleteAt 默认添加索引</span></span><br><span class="line">  gorm.Model</span><br><span class="line">  Code  <span class="keyword">string</span></span><br><span class="line">  Price <span class="keyword">uint</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="comment">// parseTime 查询结果是否自动解析为时间 Loc为时区设置</span></span><br><span class="line">  dsn := fmt.Sprintf(<span class="string">&quot;%s:%s@tcp(%s)/%s?charset=utf8mb4&amp;parseTime=True&amp;loc=Local&quot;</span>,</span><br><span class="line">	  user, pwd, addr, dbName)</span><br><span class="line">    <span class="comment">// 连接数据库</span></span><br><span class="line">  db, err := gorm.Open(mysql.Open(dsn), &amp;gorm.Config&#123;&#125;)</span><br><span class="line">  <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">      <span class="comment">// 连接失败</span></span><br><span class="line">    <span class="built_in">panic</span>(<span class="string">&quot;failed to connect database&quot;</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 迁移 schema</span></span><br><span class="line">  <span class="comment">// 执行后如果数据库该表会自动创建相应的表</span></span><br><span class="line">  <span class="comment">// 表名为小写结构体名加s  表信息可以在后面查看</span></span><br><span class="line">  <span class="comment">// 有两个单词时 默认用下划线连接</span></span><br><span class="line">  db.AutoMigrate(&amp;Product&#123;&#125;)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Create</span></span><br><span class="line">  <span class="comment">// 向数据库中添加一条记录</span></span><br><span class="line">  db.Create(&amp;Product&#123;Code: <span class="string">&quot;D42&quot;</span>, Price: <span class="number">100</span>&#125;)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Read</span></span><br><span class="line">  <span class="keyword">var</span> product Product</span><br><span class="line">  db.First(&amp;product, <span class="number">1</span>) <span class="comment">// 根据整形主键查找 查找结果保存在product中</span></span><br><span class="line">  db.First(&amp;product, <span class="string">&quot;code = ?&quot;</span>, <span class="string">&quot;D42&quot;</span>) <span class="comment">// 查找 code 字段值为 D42 的记录</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// Update - 将 product 的 price 更新为 200</span></span><br><span class="line">  db.Model(&amp;product).Update(<span class="string">&quot;Price&quot;</span>, <span class="number">200</span>)</span><br><span class="line">  <span class="comment">// Update - 更新多个字段</span></span><br><span class="line">  db.Model(&amp;product).Updates(Product&#123;Price: <span class="number">200</span>, Code: <span class="string">&quot;F42&quot;</span>&#125;) <span class="comment">// 仅更新非零值字段</span></span><br><span class="line">  db.Model(&amp;product).Updates(<span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">interface</span>&#123;&#125;&#123;<span class="string">&quot;Price&quot;</span>: <span class="number">200</span>, <span class="string">&quot;Code&quot;</span>: <span class="string">&quot;F42&quot;</span>&#125;)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Delete - 删除 product  根据主键</span></span><br><span class="line">  db.Delete(&amp;product, <span class="number">1</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Gorm模型"><a href="#Gorm模型" class="headerlink" title="Gorm模型"></a>Gorm模型</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Model可以直接作为字段添加到我们的结构体中，加速开发 </span></span><br><span class="line"><span class="keyword">type</span> Model <span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="comment">// ID默认为主键</span></span><br><span class="line">	ID        <span class="keyword">uint</span> <span class="string">`gorm:&quot;primarykey&quot;`</span></span><br><span class="line">	CreatedAt time.Time</span><br><span class="line">	UpdatedAt time.Time</span><br><span class="line">    <span class="comment">// DeletedAt默认创建索引 允许重复</span></span><br><span class="line">	DeletedAt DeletedAt <span class="string">`gorm:&quot;index&quot;`</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建表的信息"><a href="#创建表的信息" class="headerlink" title="创建表的信息"></a>创建表的信息</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">desc</span> products;</span><br><span class="line"><span class="operator">+</span><span class="comment">------------+-----------------+------+-----+---------+----------------+</span></span><br><span class="line"><span class="operator">|</span> Field      <span class="operator">|</span> Type            <span class="operator">|</span> <span class="keyword">Null</span> <span class="operator">|</span> Key <span class="operator">|</span> <span class="keyword">Default</span> <span class="operator">|</span> Extra          <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------------+-----------------+------+-----+---------+----------------+</span></span><br><span class="line"><span class="operator">|</span> id         <span class="operator">|</span> <span class="type">bigint</span> unsigned <span class="operator">|</span> <span class="keyword">NO</span>   <span class="operator">|</span> PRI <span class="operator">|</span> <span class="keyword">NULL</span>    <span class="operator">|</span> auto_increment <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> created_at <span class="operator">|</span> datetime(<span class="number">3</span>)     <span class="operator">|</span> YES  <span class="operator">|</span>     <span class="operator">|</span> <span class="keyword">NULL</span>    <span class="operator">|</span>                <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> updated_at <span class="operator">|</span> datetime(<span class="number">3</span>)     <span class="operator">|</span> YES  <span class="operator">|</span>     <span class="operator">|</span> <span class="keyword">NULL</span>    <span class="operator">|</span>                <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> deleted_at <span class="operator">|</span> datetime(<span class="number">3</span>)     <span class="operator">|</span> YES  <span class="operator">|</span> MUL <span class="operator">|</span> <span class="keyword">NULL</span>    <span class="operator">|</span>                <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> code       <span class="operator">|</span> longtext        <span class="operator">|</span> YES  <span class="operator">|</span>     <span class="operator">|</span> <span class="keyword">NULL</span>    <span class="operator">|</span>                <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> price      <span class="operator">|</span> <span class="type">bigint</span> unsigned <span class="operator">|</span> YES  <span class="operator">|</span>     <span class="operator">|</span> <span class="keyword">NULL</span>    <span class="operator">|</span>                <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------------+-----------------+------+-----+---------+----------------+</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 自定义表名创建表</span></span><br><span class="line">db.Table(tableName).creatTable(&amp;Product&#123;&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建记录并更新给出的字段。</span></span><br><span class="line">db.Select(<span class="string">&quot;Name&quot;</span>, <span class="string">&quot;Age&quot;</span>, <span class="string">&quot;CreatedAt&quot;</span>).Create(&amp;user)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 根据id更新，即使是零值也会修改</span></span><br><span class="line">db.Save(&amp;user)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Email 的 ID 是 `10`</span></span><br><span class="line">db.Delete(&amp;email)</span><br><span class="line"><span class="comment">// DELETE from emails where id = 10;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 带额外条件的删除</span></span><br><span class="line">db.Where(<span class="string">&quot;name = ?&quot;</span>, <span class="string">&quot;jinzhu&quot;</span>).Delete(&amp;email)</span><br><span class="line"><span class="comment">// DELETE from emails where id = 10 AND name = &quot;jinzhu&quot;;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 根据主键删除数据</span></span><br><span class="line">db.Delete(&amp;User&#123;&#125;, <span class="number">10</span>)</span><br><span class="line"><span class="comment">// DELETE FROM users WHERE id = 10;</span></span><br><span class="line"></span><br><span class="line">db.Delete(&amp;User&#123;&#125;, <span class="string">&quot;10&quot;</span>)</span><br><span class="line"><span class="comment">// DELETE FROM users WHERE id = 10;</span></span><br><span class="line"></span><br><span class="line">db.Delete(&amp;users, []<span class="keyword">int</span>&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;)</span><br><span class="line"><span class="comment">// DELETE FROM users WHERE id IN (1,2,3);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 查询软删除的数据</span></span><br><span class="line">db.Unscoped().Where(<span class="string">&quot;age = 20&quot;</span>).Find(&amp;users)</span><br><span class="line"><span class="comment">// SELECT * FROM users WHERE age = 20;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 永久删除</span></span><br><span class="line">db.Unscoped().Delete(&amp;order)</span><br><span class="line"><span class="comment">// DELETE FROM orders WHERE id=10;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="常用的结构体标记-tag"><a href="#常用的结构体标记-tag" class="headerlink" title="常用的结构体标记(tag)"></a>常用的结构体标记(tag)</h2><table>
+<thead>
+<tr>
+<th align="center">结构体标记（Tag）</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Column</td>
+<td align="center">指定列名</td>
+</tr>
+<tr>
+<td align="center">Type</td>
+<td align="center">指定列数据类型</td>
+</tr>
+<tr>
+<td align="center">Size</td>
+<td align="center">指定列大小, 默认值255</td>
+</tr>
+<tr>
+<td align="center">PRIMARY_KEY</td>
+<td align="center">将列指定为主键</td>
+</tr>
+<tr>
+<td align="center">UNIQUE</td>
+<td align="center">将列指定为唯一</td>
+</tr>
+<tr>
+<td align="center">DEFAULT</td>
+<td align="center">指定列默认值</td>
+</tr>
+<tr>
+<td align="center">PRECISION</td>
+<td align="center">指定列精度</td>
+</tr>
+<tr>
+<td align="center">NOT NULL</td>
+<td align="center">将列指定为非 NULL</td>
+</tr>
+<tr>
+<td align="center">AUTO_INCREMENT</td>
+<td align="center">指定列是否为自增类型</td>
+</tr>
+<tr>
+<td align="center">INDEX</td>
+<td align="center">创建具有或不带名称的索引, 如果多个索引同名则创建复合索引</td>
+</tr>
+<tr>
+<td align="center">UNIQUE_INDEX</td>
+<td align="center">和 <code>INDEX</code> 类似，只不过创建的是唯一索引</td>
+</tr>
+<tr>
+<td align="center">EMBEDDED</td>
+<td align="center">将结构设置为嵌入</td>
+</tr>
+<tr>
+<td align="center">EMBEDDED_PREFIX</td>
+<td align="center">设置嵌入结构的前缀</td>
+</tr>
+<tr>
+<td align="center">-</td>
+<td align="center">忽略此字段</td>
+</tr>
+</tbody></table>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -245,275 +397,135 @@ var loadingTimer=self.setInterval(function clock()
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/tinybeer.github.io/2021/03/19/Gorm%E5%AD%A6%E4%B9%A0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/tinybeer.github.io/2021/03/18/Nodejs-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2021-03-18T03:58:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-18</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/tinybeer.github.io/2021/03/18/Nodejs-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Node.js 学习笔记</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AFORM%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">1.什么是ORM？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Gorm%E7%89%B9%E6%80%A7"><span class="toc-number">2.</span> <span class="toc-text">2.Gorm特性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8-MySql%E7%89%88"><span class="toc-number">3.</span> <span class="toc-text">3.简单入门(MySql版)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%8C%85"><span class="toc-number">3.1.</span> <span class="toc-text">安装包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81"><span class="toc-number">3.2.</span> <span class="toc-text">示例代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gorm%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.3.</span> <span class="toc-text">Gorm模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%A1%A8%E7%9A%84%E4%BF%A1%E6%81%AF"><span class="toc-number">3.4.</span> <span class="toc-text">创建表的信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="toc-number">3.5.</span> <span class="toc-text">常用指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E7%BB%93%E6%9E%84%E4%BD%93%E6%A0%87%E8%AE%B0-tag"><span class="toc-number">3.6.</span> <span class="toc-text">常用的结构体标记(tag)</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-    	 
+        
+    </div>
+</aside>
+
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/tinybeer.github.io/2021/03/18/Nodejs-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Node.js 学习笔记</a>
-    </h1>
+    <div class="valine_comment"></div>
+<!--载入js，在</body>之前插入即可-->
+<!--Leancloud 操作库:-->
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<!--Valine 的核心代码库-->
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+  var notify = 'true' == true ? true : false;
+  var verify = 'false' == true ? true : false;
+  new Valine({
+      // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+      av: AV,
+      el: '.valine_comment',
+      emoticon_url: 'https://cloud.panjunwen.com/alu',
+      emoticon_list: ["狂汗.png","不说话.png","汗.png","坐等.png","献花.png","不高兴.png","中刀.png","害羞.png","皱眉.png","小眼睛.png","暗地观察.png"],
+      app_id: 'QtWnTwhkOYWejgmNJw1b6qER-gzGzoHsz',
+      app_key: '6UVtpp0PRGdqJazGIj3lMhXP',
+      placeholder: '有话要说？'
+    });
+</script>
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/tinybeer.github.io/2021/03/16/Vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2021-03-16T04:30:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/tinybeer.github.io/2021/03/16/Vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Vue学习笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/tinybeer.github.io/2021/03/12/Redis%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BD%BF%E7%94%A8%E7%9A%84%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2021-03-12T15:43:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/tinybeer.github.io/2021/03/12/Redis%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BD%BF%E7%94%A8%E7%9A%84%E5%85%A5%E9%97%A8/">Redis数据库使用的入门</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/tinybeer.github.io/2021/03/11/jQuery%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2021-03-11T09:33:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/tinybeer.github.io/2021/03/11/jQuery%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">jQuery学习笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/tinybeer.github.io/2021/03/10/win10home%E4%B8%8Adocker%E7%9A%84%E9%83%A8%E7%BD%B2/" class="archive-article-date">
-  	<time datetime="2021-03-10T11:34:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/tinybeer.github.io/2021/03/10/win10home%E4%B8%8Adocker%E7%9A%84%E9%83%A8%E7%BD%B2/">win10home上docker的部署</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/tinybeer.github.io/2021/03/10/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2021-03-10T07:36:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/tinybeer.github.io/2021/03/10/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">Hexo博客搭建</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/tinybeer.github.io/2021/03/10/hello-world/" class="archive-article-date">
-  	<time datetime="2021-03-10T05:07:47.890Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/tinybeer.github.io/2021/03/10/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
 
+  
+
+  
 
           </div>
         </div>
@@ -546,8 +558,8 @@ var loadingTimer=self.setInterval(function clock()
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
