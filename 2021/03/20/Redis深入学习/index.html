@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github.com/tinybeer.github.io">
-  <title>MySql学习 | 困</title>
+  <title>Redis深入学习 | 困</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="MySQL 是一个关系型数据库管理系统，由瑞典 MySQL AB 公司开发，目前属于 Oracle 公司。MySQL 是一种关联数据库管理系统，关联数据库将数据保存在不同的表中，而不是将所有数据放在一个大仓库内，这样就增加了速度并提高了灵活性。">
+  <meta name="description" content="官方介绍：Redis 是一个开源（BSD许可）的，内存中的数据结构存储系统，它可以用作数据库、缓存和消息中间件。 它支持多种类型的数据结构，如 字符串（strings）， 散列（hashes）， 列表（lists）， 集合（sets）， 有序集合（sorted sets） 与范围查询， bitmaps， hyperloglogs 和 地理空间（geospatial） 索引半径查询。 Redis 内">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySql学习">
-<meta property="og:url" content="https://github.com/tinybeer.github.io/2021/03/19/MySql%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:title" content="Redis深入学习">
+<meta property="og:url" content="https://github.com/tinybeer.github.io/2021/03/20/Redis%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="困">
-<meta property="og:description" content="MySQL 是一个关系型数据库管理系统，由瑞典 MySQL AB 公司开发，目前属于 Oracle 公司。MySQL 是一种关联数据库管理系统，关联数据库将数据保存在不同的表中，而不是将所有数据放在一个大仓库内，这样就增加了速度并提高了灵活性。">
+<meta property="og:description" content="官方介绍：Redis 是一个开源（BSD许可）的，内存中的数据结构存储系统，它可以用作数据库、缓存和消息中间件。 它支持多种类型的数据结构，如 字符串（strings）， 散列（hashes）， 列表（lists）， 集合（sets）， 有序集合（sorted sets） 与范围查询， bitmaps， hyperloglogs 和 地理空间（geospatial） 索引半径查询。 Redis 内">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-03-19T09:47:15.000Z">
-<meta property="article:modified_time" content="2021-03-20T13:37:58.369Z">
+<meta property="article:published_time" content="2021-03-20T13:42:49.000Z">
+<meta property="article:modified_time" content="2021-03-20T13:46:01.633Z">
 <meta property="article:author" content="Tiny Beer">
-<meta property="article:tag" content="学习笔笔记">
+<meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="困" type="application/atom+xml">
@@ -209,7 +209,7 @@ var loadingTimer=self.setInterval(function clock()
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-MySql学习" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Redis深入学习" class="article article-type-post " itemscope itemprop="blogPost">
 
  <!-- 目录内容 -->
  
@@ -220,7 +220,7 @@ var loadingTimer=self.setInterval(function clock()
   <div id="toc-article" class="toc-article"  style="display:none">
       <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
       <strong class="toc-title">文章目录</strong>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A5%E5%B8%B8%E6%93%8D%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">日常操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%93%E7%9B%B8%E5%85%B3"><span class="toc-number">1.1.</span> <span class="toc-text">数据库库相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%BA%93"><span class="toc-number">1.1.1.</span> <span class="toc-text">查看库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E5%BA%93"><span class="toc-number">1.1.2.</span> <span class="toc-text">选库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%A1%A8"><span class="toc-number">1.1.3.</span> <span class="toc-text">查看表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E5%BA%93"><span class="toc-number">1.1.4.</span> <span class="toc-text">建库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E5%BA%93"><span class="toc-number">1.1.5.</span> <span class="toc-text">删库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%B9%E5%90%8D"><span class="toc-number">1.1.6.</span> <span class="toc-text">改名</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E7%9B%B8%E5%85%B3"><span class="toc-number">1.2.</span> <span class="toc-text">表相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E8%A1%A8"><span class="toc-number">1.2.1.</span> <span class="toc-text">建表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%B9%E8%A1%A8%E5%90%8D"><span class="toc-number">1.2.2.</span> <span class="toc-text">改表名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%85%E7%A9%BA%E8%A1%A8"><span class="toc-number">1.2.3.</span> <span class="toc-text">清空表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E5%AD%97%E7%AC%A6%E9%9B%86"><span class="toc-number">1.2.4.</span> <span class="toc-text">选择字符集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%A1%A8%E7%BB%93%E6%9E%84"><span class="toc-number">1.2.5.</span> <span class="toc-text">查看表结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%B0%E5%BD%95%E7%9B%B8%E5%85%B3"><span class="toc-number">1.3.</span> <span class="toc-text">记录相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E5%85%A5"><span class="toc-number">1.3.1.</span> <span class="toc-text">插入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%B9"><span class="toc-number">1.3.2.</span> <span class="toc-text">改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4"><span class="toc-number">1.3.3.</span> <span class="toc-text">删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE"><span class="toc-number">1.3.4.</span> <span class="toc-text">查找</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E6%8A%80%E5%B7%A7"><span class="toc-number">1.4.</span> <span class="toc-text">小技巧</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MySql%E8%BF%9B%E9%98%B6"><span class="toc-number">2.</span> <span class="toc-text">MySql进阶</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.0.1.</span> <span class="toc-text">数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E5%9E%8B"><span class="toc-number">2.0.1.1.</span> <span class="toc-text">数值型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">2.0.2.</span> <span class="toc-text">字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.0.3.</span> <span class="toc-text">日期时间类型</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BB%BA%E8%A1%A8%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90"><span class="toc-number">3.</span> <span class="toc-text">建表案例分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%94%B9%E8%A1%A8-%E5%88%97"><span class="toc-number">4.</span> <span class="toc-text">改表-列</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A2%9E%E5%8A%A0%E5%88%97"><span class="toc-number">4.0.1.</span> <span class="toc-text">增加列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%88%97"><span class="toc-number">4.0.2.</span> <span class="toc-text">删除列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%88%97%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.0.3.</span> <span class="toc-text">修改列类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%88%97%E5%90%8D%E5%8F%8A%E5%88%97%E7%B1%BB"><span class="toc-number">4.0.4.</span> <span class="toc-text">修改列名及列类</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MySql%E6%95%B0%E6%8D%AE%E5%BA%93%E2%80%93%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0"><span class="toc-number">5.</span> <span class="toc-text">MySql数据库–深入学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E7%BA%A7%E6%9F%A5%E8%AF%A2"><span class="toc-number">5.1.</span> <span class="toc-text">高级查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#where"><span class="toc-number">5.1.1.</span> <span class="toc-text">where</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#group-by"><span class="toc-number">5.1.2.</span> <span class="toc-text">group by</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#having"><span class="toc-number">5.1.3.</span> <span class="toc-text">having</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#order-by"><span class="toc-number">5.1.4.</span> <span class="toc-text">order by</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#limit-offset-N"><span class="toc-number">5.1.5.</span> <span class="toc-text">limit [offset] N</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="toc-number">5.1.6.</span> <span class="toc-text">子查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%94%E8%A1%A8%E6%9F%A5%E8%AF%A2"><span class="toc-number">5.1.7.</span> <span class="toc-text">联表查询</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0"><span class="toc-number">5.2.</span> <span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6%E5%87%BD%E6%95%B0"><span class="toc-number">5.2.1.</span> <span class="toc-text">数学函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0"><span class="toc-number">5.2.2.</span> <span class="toc-text">聚合函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0"><span class="toc-number">5.2.3.</span> <span class="toc-text">字符串函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4%E5%87%BD%E6%95%B0"><span class="toc-number">5.2.4.</span> <span class="toc-text">日期和时间函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E5%AF%86%E5%87%BD%E6%95%B0"><span class="toc-number">5.2.5.</span> <span class="toc-text">加密函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%87%BD%E6%95%B0"><span class="toc-number">5.2.6.</span> <span class="toc-text">格式化函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0"><span class="toc-number">5.2.7.</span> <span class="toc-text">类型转换函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF%E5%87%BD%E6%95%B0"><span class="toc-number">5.2.8.</span> <span class="toc-text">系统信息函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#View%E8%A7%86%E5%9B%BE"><span class="toc-number">5.3.</span> <span class="toc-text">View视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%B4%E6%97%B6%E8%A1%A8"><span class="toc-number">5.4.</span> <span class="toc-text">临时表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E9%9B%86%E7%BC%96%E7%A0%81"><span class="toc-number">5.5.</span> <span class="toc-text">字符集编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E"><span class="toc-number">5.6.</span> <span class="toc-text">存储引擎</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1"><span class="toc-number">5.7.</span> <span class="toc-text">事务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="toc-number">5.8.</span> <span class="toc-text">触发器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%87%E4%BB%BD%E5%92%8C%E6%81%A2%E5%A4%8D"><span class="toc-number">5.9.</span> <span class="toc-text">备份和恢复</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E6%80%A7%E9%97%AE%E9%A2%98"><span class="toc-number">5.10.</span> <span class="toc-text">安全性问题</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">性能：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#linux%E4%B8%8B%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-number"></span> <span class="toc-text">linux下的配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E5%8F%B0%E5%90%AF%E5%8A%A8"><span class="toc-number">1.</span> <span class="toc-text">后台启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E4%BF%9D%E6%8A%A4"><span class="toc-number">2.</span> <span class="toc-text">连接保护</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">3.</span> <span class="toc-text">连接数据库</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E9%9D%9E%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number"></span> <span class="toc-text">关系型数据库和非关系型数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.</span> <span class="toc-text">关系型数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-number">1.1.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AE%E5%AE%9A"><span class="toc-number">1.2.</span> <span class="toc-text">确定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E8%A1%A8%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.3.</span> <span class="toc-text">代表数据库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%9E%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">2.</span> <span class="toc-text">非关系型数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E7%82%B9-1"><span class="toc-number">2.1.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-number">2.2.</span> <span class="toc-text">缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E8%A1%A8%E6%95%B0%E6%8D%AE%E5%BA%93-1"><span class="toc-number">2.3.</span> <span class="toc-text">代表数据库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AF%94%E8%BE%83"><span class="toc-number">3.</span> <span class="toc-text">比较</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Redis%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7"><span class="toc-number"></span> <span class="toc-text">Redis使用技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%82%E7%BA%A7%E7%9B%AE%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">层级目录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E7%94%A8%E5%88%A0%E9%99%A4"><span class="toc-number">1.1.</span> <span class="toc-text">通用删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%B1%E6%95%88%E6%97%B6%E9%97%B4"><span class="toc-number">1.2.</span> <span class="toc-text">失效时间</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Redis%E6%8C%81%E4%B9%85%E5%8C%96%E6%96%B9%E6%A1%88"><span class="toc-number"></span> <span class="toc-text">Redis持久化方案</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Redis%E6%90%AD%E5%BB%BA%E4%B8%BB%E4%BB%8E%E6%9C%8D%E7%94%A8%E6%A8%A1%E5%9E%8B"><span class="toc-number"></span> <span class="toc-text">Redis搭建主从服用模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number"></span> <span class="toc-text">缓存问题的解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E5%87%BB%E7%A9%BF"><span class="toc-number">1.</span> <span class="toc-text">缓存击穿</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F"><span class="toc-number">2.</span> <span class="toc-text">缓存穿透</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9"><span class="toc-number">3.</span> <span class="toc-text">缓存雪崩</span></a></li></ol>
  </div>
  <script type="text/javascript">
   function showToc(){
@@ -247,13 +247,13 @@ var loadingTimer=self.setInterval(function clock()
         
   
     <h1 class="article-title" itemprop="name">
-      MySql学习
+      Redis深入学习
     </h1>
   
 
         
-        <a href="/tinybeer.github.io/2021/03/19/MySql%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2021-03-19T09:47:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-19</time>
+        <a href="/tinybeer.github.io/2021/03/20/Redis%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
+  	<time datetime="2021-03-20T13:42:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-20</time>
 </a>
         
 
@@ -264,7 +264,7 @@ var loadingTimer=self.setInterval(function clock()
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">4.4k字</span>
+        <span class="post-count">2.3k字</span>
       </span>
     </span>
 
@@ -273,7 +273,7 @@ var loadingTimer=self.setInterval(function clock()
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">18分</span>
+        <span class="post-count">8分</span>
       </span>
     </span>
 </div>
@@ -284,577 +284,222 @@ var loadingTimer=self.setInterval(function clock()
     <div class="article-entry" itemprop="articleBody">
       
       
-        <p>MySQL 是一个关系型数据库管理系统，由瑞典 MySQL AB 公司开发，目前属于 Oracle 公司。MySQL 是一种关联数据库管理系统，关联数据库将数据保存在不同的表中，而不是将所有数据放在一个大仓库内，这样就增加了速度并提高了灵活性。</p>
+        <p><a target="_blank" rel="noopener" href="http://www.redis.cn/">官方</a>介绍：Redis 是一个开源（BSD许可）的，内存中的数据结构存储系统，它可以用作数据库、缓存和消息中间件。 它支持多种类型的数据结构，如 <a target="_blank" rel="noopener" href="http://www.redis.cn/topics/data-types-intro.html#strings">字符串（strings）</a>， <a target="_blank" rel="noopener" href="http://www.redis.cn/topics/data-types-intro.html#hashes">散列（hashes）</a>， <a target="_blank" rel="noopener" href="http://www.redis.cn/topics/data-types-intro.html#lists">列表（lists）</a>， <a target="_blank" rel="noopener" href="http://www.redis.cn/topics/data-types-intro.html#sets">集合（sets）</a>， <a target="_blank" rel="noopener" href="http://www.redis.cn/topics/data-types-intro.html#sorted-sets">有序集合（sorted sets）</a> 与范围查询， <a target="_blank" rel="noopener" href="http://www.redis.cn/topics/data-types-intro.html#bitmaps">bitmaps</a>， <a target="_blank" rel="noopener" href="http://www.redis.cn/topics/data-types-intro.html#hyperloglogs">hyperloglogs</a> 和 <a target="_blank" rel="noopener" href="http://www.redis.cn/commands/geoadd.html">地理空间（geospatial）</a> 索引半径查询。 Redis 内置了 <a target="_blank" rel="noopener" href="http://www.redis.cn/topics/replication.html">复制（replication）</a>，<a target="_blank" rel="noopener" href="http://www.redis.cn/commands/eval.html">LUA脚本（Lua scripting）</a>， <a target="_blank" rel="noopener" href="http://www.redis.cn/topics/lru-cache.html">LRU驱动事件（LRU eviction）</a>，<a target="_blank" rel="noopener" href="http://www.redis.cn/topics/transactions.html">事务（transactions）</a> 和不同级别的 <a target="_blank" rel="noopener" href="http://www.redis.cn/topics/persistence.html">磁盘持久化（persistence）</a>， 并通过 <a target="_blank" rel="noopener" href="http://www.redis.cn/topics/sentinel.html">Redis哨兵（Sentinel）</a>和自动 <a target="_blank" rel="noopener" href="http://www.redis.cn/topics/cluster-tutorial.html">分区（Cluster）</a>提供高可用性（high availability）。</p>
 <span id="more"></span>
 
-<ul>
-<li>MySQL 是开源的，目前隶属于 Oracle 旗下产品。</li>
-<li>MySQL 支持大型的数据库。可以处理拥有上千万条记录的大型数据库。</li>
-<li>MySQL 使用标准的 SQL 数据语言形式。</li>
-<li>MySQL 可以运行于多个系统上，并且支持多种语言。这些编程语言包括 C、C++、Python、Java、Perl、PHP、Eiffel、Ruby 和 Tcl 等。</li>
-<li>MySQL 对PHP有很好的支持，PHP 是目前最流行的 Web 开发语言。</li>
-<li>MySQL 支持大型数据库，支持 5000 万条记录的数据仓库，32 位系统表文件最大可支持 4GB，64 位系统支持最大的表文件为8TB。</li>
-<li>MySQL 是可以定制的，采用了 GPL 协议，你可以修改源码来开发自己的 MySQL 系统。</li>
+<p>补充：</p>
+<p>redis：6.0版本后开放了多线程，之前内部操作有多线程，如磁盘持久化</p>
+<p>支持大部分编程语言</p>
+<h2 id="性能："><a href="#性能：" class="headerlink" title="性能："></a>性能：</h2><p>官方的bench-mark数据</p>
+<p>测试完成了50个并发，10w个请求</p>
+<p>设置和获取的值是一个256字节字符串</p>
+<p>结果:读的速度是11w次/s  写的速度是8.1w次/s</p>
+<h1 id="linux下的配置"><a href="#linux下的配置" class="headerlink" title="linux下的配置"></a>linux下的配置</h1><h2 id="后台启动"><a href="#后台启动" class="headerlink" title="后台启动"></a>后台启动</h2><p><code>redis.conf</code>文件中</p>
+<p>daemonize 改为 yes</p>
+<p><code>./redis-server redis.conf</code> 启动</p>
+<p>使用ps查看是否启动成功</p>
+<h2 id="连接保护"><a href="#连接保护" class="headerlink" title="连接保护"></a>连接保护</h2><p><code>bind + ip</code> 绑定ip，仅允许指定ip连接  注释掉，所有ip可访问</p>
+<p><code>database 16</code>    默认16个数据库，(逻辑)虚拟数据库</p>
+<p>测试连接即可</p>
+<p><code>requirepass + password</code>设置密码</p>
+<h2 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h2><p><code>./redis-cli -p [port] -a [account]</code>   配置端口和用户</p>
+<p><code>ping</code> 正常返回值为 <code>PONG</code></p>
+<p><code>select dbNo.</code>选择数据库</p>
+<h1 id="关系型数据库和非关系型数据库"><a href="#关系型数据库和非关系型数据库" class="headerlink" title="关系型数据库和非关系型数据库"></a>关系型数据库和非关系型数据库</h1><h2 id="关系型数据库"><a href="#关系型数据库" class="headerlink" title="关系型数据库"></a>关系型数据库</h2><p>采用关系模型组织数据的数据库。采用二维表格模型， 一行为记录，一列为字段</p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>容易理解</li>
+<li>使用方便，sql语句</li>
+<li>易于维护 丰富的完整性，顶点降低数据冗余和不一致性</li>
 </ul>
-<p><strong>补充知识</strong></p>
-<ul>
-<li><p>关系型数据库：mysql oracale sqlite postgresql</p>
-</li>
-<li><p>数据库标准：sql标准，不同数据库对sql ISO标准执行略有差异  mysql没有全连接</p>
-</li>
+<h3 id="确定"><a href="#确定" class="headerlink" title="确定"></a>确定</h3><ul>
+<li>磁盘I/O成为并发瓶颈</li>
+<li>海量数据查询效率低</li>
+<li>横向拓展困难   无法简单的添加硬件和服务节点来扩展性能，扩展升级时通畅需要停机</li>
+<li>多表的关联查询以及复杂的数据分析类的复杂sql，性能欠佳，保证acid，需要按照三范式设计</li>
 </ul>
-<ul>
-<li><p>数据库系统:  一个系统多个库  一个库多张表  一张表多条记录</p>
-</li>
-<li><p>LAMP架构：mysql liux apache php </p>
-<p>MySql 开源免费     postgresql 也开源，sql标准执行更严格</p>
-</li>
+<h3 id="代表数据库"><a href="#代表数据库" class="headerlink" title="代表数据库"></a>代表数据库</h3><ul>
+<li>MySQL </li>
+<li>Oracle </li>
+<li>Sql Server </li>
+<li>DB2</li>
 </ul>
-<p><strong>docker中的mysql</strong></p>
-<ul>
-<li>运行镜像</li>
+<h2 id="非关系型数据库"><a href="#非关系型数据库" class="headerlink" title="非关系型数据库"></a>非关系型数据库</h2><p>非关系型，分布式，一般不保证遵循acid原则的数据库，键值对存储，结构不固定</p>
+<h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>根据需求添加字段，不需要多表联查，仅需key就可对应出value</li>
+<li>适用于SNS(社会化网络服务软件)</li>
+<li>严格上说不是数据库，是一种数据结构化存储方法的集合</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -itd --name mysql-test -p 3306:3306 -e MYSQL_ROOT_PASSWORD&#x3D;123456 mysql</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>进入运行中的镜像</li>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>只能存储相对简单的数据</li>
+<li>不适合复杂查询的数据</li>
+<li>不适合持久存储海量数据</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it mysql-test &#x2F;bin&#x2F;bash</span><br></pre></td></tr></table></figure>
-
-<h1 id="日常操作"><a href="#日常操作" class="headerlink" title="日常操作"></a>日常操作</h1><h2 id="数据库库相关"><a href="#数据库库相关" class="headerlink" title="数据库库相关"></a>数据库库相关</h2><ul>
-<li><h3 id="查看库"><a href="#查看库" class="headerlink" title="查看库"></a>查看库</h3></li>
+<h3 id="代表数据库-1"><a href="#代表数据库-1" class="headerlink" title="代表数据库"></a>代表数据库</h3><ul>
+<li>k·v：Redis Memcache</li>
+<li>文档：MongoDB</li>
+<li>搜索：Elasticsearch，Solr</li>
+<li>可拓展性分布式：HBase</li>
 </ul>
-<p><code>show databases;</code></p>
-<ul>
-<li><h3 id="选库"><a href="#选库" class="headerlink" title="选库"></a>选库</h3></li>
-</ul>
-<p><code>use [dbname]</code></p>
-<ul>
-<li><h3 id="查看表"><a href="#查看表" class="headerlink" title="查看表"></a>查看表</h3></li>
-</ul>
-<p><code>show tables;</code></p>
-<ul>
-<li><h3 id="建库"><a href="#建库" class="headerlink" title="建库"></a>建库</h3></li>
-</ul>
-<p><code>create database [dbname] [charset utf8]</code></p>
-<ul>
-<li><h3 id="删库"><a href="#删库" class="headerlink" title="删库"></a>删库</h3></li>
-</ul>
-<p><code>drop database [dbname]</code></p>
-<ul>
-<li><h3 id="改名"><a href="#改名" class="headerlink" title="改名"></a>改名</h3></li>
-</ul>
-<p>mysql中不能支持改名，使用创建-&gt;复制-&gt;删除代替</p>
-<h2 id="表相关"><a href="#表相关" class="headerlink" title="表相关"></a>表相关</h2><ul>
-<li><h3 id="建表"><a href="#建表" class="headerlink" title="建表"></a>建表</h3></li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> stu( </span><br><span class="line">    Snum <span class="type">int</span>, </span><br><span class="line">    Sname <span class="type">varchar</span>(<span class="number">10</span>) </span><br><span class="line">)engine myisam charset utf8;</span><br></pre></td></tr></table></figure>
-
-<p>engine：表引擎  和 性能有关系</p>
-<ul>
-<li><h3 id="改表名"><a href="#改表名" class="headerlink" title="改表名"></a>改表名</h3></li>
-</ul>
-<p><code>rename table stu to newstu</code></p>
-<ul>
-<li><h3 id="清空表"><a href="#清空表" class="headerlink" title="清空表"></a>清空表</h3></li>
-</ul>
-<p><code>truncate [tablename]</code></p>
-<p>truncate 和 delete有区别</p>
-<p>truncate删表后重建空表 速度更快。</p>
-<p>delete是从记录层面删除，自增记录还在。</p>
-<ul>
-<li><h3 id="选择字符集"><a href="#选择字符集" class="headerlink" title="选择字符集"></a>选择字符集</h3></li>
-</ul>
-<p><code>set name gbk;</code></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> class (</span><br><span class="line">  id <span class="type">int</span> <span class="keyword">primary</span> key auto_increment,</span><br><span class="line">  sname <span class="type">varchar</span>(<span class="number">10</span>) <span class="keyword">not</span> <span class="keyword">null</span> <span class="keyword">default</span> <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">  gender <span class="type">char</span>(<span class="number">1</span>) <span class="keyword">not</span> <span class="keyword">null</span> <span class="keyword">default</span> <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">  company <span class="type">varchar</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="keyword">null</span> <span class="keyword">default</span> <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">  salary <span class="type">decimal</span>(<span class="number">6</span>,<span class="number">2</span>) <span class="keyword">not</span> <span class="keyword">null</span> <span class="keyword">default</span> <span class="number">0.00</span>,</span><br><span class="line">  fanbu <span class="type">smallint</span> <span class="keyword">not</span> <span class="keyword">null</span> <span class="keyword">default</span> <span class="number">0</span></span><br><span class="line">) engine myisam charset utf8;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><h3 id="查看表结构"><a href="#查看表结构" class="headerlink" title="查看表结构"></a>查看表结构</h3></li>
-</ul>
-<p><code>desc [tablename]</code>  </p>
-<h2 id="记录相关"><a href="#记录相关" class="headerlink" title="记录相关"></a>记录相关</h2><ul>
-<li><h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h3></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert into class (id, sname, gender, company, salary, fanbu) values(1, &#39;张三&#39;, &#39;男&#39;, &#39;百度&#39;, 8888.67, 234);</span><br></pre></td></tr></table></figure>
-
-<p>​        如果插入所有列，可不知名待插入列。</p>
-<p>​    一次插入多条数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">insert into class(sname, company, salary) values(</span><br><span class="line">&#39;liubei&#39;, &#39;royaler&#39;, 15.28),(</span><br><span class="line">&#39;sunce&#39;, &#39;jiangdong&#39;, 56.34),(</span><br><span class="line">&#39;caocao&#39;, &#39;huanguanhouyi&#39;, 88.56);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><h3 id="改"><a href="#改" class="headerlink" title="改"></a>改</h3><p>update</p>
-</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update class <span class="keyword">set</span> gender<span class="operator">=</span>&quot;F&quot;, company<span class="operator">=</span>&quot;qiandu&quot; <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">4</span>;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">delete from class where salary&gt;8888;</span><br><span class="line">delete from class;&#x2F;&#x2F; 删除所有数据</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select salary, company from class where id &#x3D; 3 or id &#x3D; 5;</span><br></pre></td></tr></table></figure>
-
-<h2 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h2><ul>
-<li><p>在MySql命令行中使用<code>\c</code>可以重新输入</p>
-</li>
-<li><p>使用<code>show create table</code> 可以查看建表脚本</p>
-</li>
-<li><p>可以使用查询语句导入表，保持格式一致即可</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> products_clone(列名...) <span class="keyword">select</span> 列名... <span class="keyword">from</span> products; </span><br></pre></td></tr></table></figure></li>
-<li><p>统计重复数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SELECT COUNT(*) as repetitions, last_name, first_name</span><br><span class="line">    -&gt; FROM person_tbl</span><br><span class="line">    -&gt; GROUP BY last_name, first_name</span><br><span class="line">    -&gt; HAVING repetitions &gt; 1;</span><br></pre></td></tr></table></figure></li>
-<li><p>查询非重复数据  结合查询语句导入表就可方便的实现去重</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> last_name, first_nameFROM person_tbl;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="MySql进阶"><a href="#MySql进阶" class="headerlink" title="MySql进阶"></a>MySql进阶</h1><h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>​    MySql三大列类型</p>
-<h4 id="数值型"><a href="#数值型" class="headerlink" title="数值型"></a>数值型</h4><p>​    整形</p>
-<p>​      参数:(M)补零宽度                     unsigned 无符号         zerofill:零填充，必须和zerofill配合 自带unsigned</p>
-<ul>
-<li><p>Tinyint:                1byte </p>
-</li>
-<li><p>Smallint:             2byte</p>
-</li>
-<li><p>Mediuint             3byte</p>
-</li>
-<li><p>Int                         4byte</p>
-</li>
-<li><p>Bigint                    8byte</p>
-</li>
-</ul>
-<p>​    小数（定型/浮点型）</p>
-<ul>
-<li>Float(M,D)   浮点       M精度  总位数 D标度 小数位数  M&lt;=24 4byte      8byte  float 可能会损失精度</li>
-<li>decimal(M,D)  定点  比float精确  变长类型  敏感数据用</li>
-</ul>
-<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><ul>
-<li><strong>char</strong>   char(6)定长字符串  查询效率更高（可以计算地址） 浪费空间 用空格在末尾补齐,去除时候删掉，末尾空格会丢失。 （M）0-255</li>
-<li><strong>vchar</strong>  列内容前有1-2字节标记长度  灵活 (M) 0-65535   M都代表字符</li>
-<li>text：大文本   搜索较慢  一般论坛文章  LONGTEXT   声明时候不必给默认值。</li>
-<li>blob：二进制类型  存储图像音频等二进制信息  意义防止因为字符集问题导致信息丢失。</li>
-</ul>
-<p><code>concat</code>连接字符串</p>
-<h3 id="日期时间类型"><a href="#日期时间类型" class="headerlink" title="日期时间类型"></a>日期时间类型</h3><ul>
-<li>date 默认值为0000-00-00可能出现invalid， 由于配置中NO_ZERO_IN_DATE, NO_ZERO_DATE; 3byte</li>
-<li>time  00:00:00 3byte</li>
-<li>datetime 0000-00-00 00:00:00   8byte</li>
-<li>timestamp 4byte   default CURRENT_TIMESTAMP 不填入，会自动生成默认值</li>
-<li>year 1byte  1901~2155</li>
-</ul>
-<h1 id="建表案例分析"><a href="#建表案例分析" class="headerlink" title="建表案例分析"></a>建表案例分析</h1><table>
+<h2 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h2><table>
 <thead>
 <tr>
-<th>列名</th>
-<th>列类型</th>
-<th>默认值</th>
-<th>是否为主键</th>
+<th>内容</th>
+<th>关系型数据库</th>
+<th>非关系型数据库</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>Id</td>
-<td>Int unsigned</td>
-<td></td>
-<td>PRI</td>
+<td>服务费</td>
+<td>有些需要收费 Oracle</td>
+<td>基本都是开源的</td>
 </tr>
 <tr>
-<td>UserName</td>
-<td>Vchar(20)</td>
-<td>“”</td>
-<td></td>
+<td>查询数据</td>
+<td>存储于硬盘中，速度慢</td>
+<td>数据存于缓存中，速度快</td>
 </tr>
 <tr>
-<td>Gender</td>
-<td>Char(1)/tinyint</td>
-<td>“”</td>
-<td></td>
+<td>存储格式</td>
+<td>只支持基础类型</td>
+<td>k-v，文档，图片等</td>
 </tr>
 <tr>
-<td>Weight</td>
-<td>Tinyint unsigned</td>
-<td>0.00</td>
-<td></td>
+<td>扩展性</td>
+<td>有多表查询机制，扩展困难</td>
+<td>数据之间没有耦合，易于拓展</td>
 </tr>
 <tr>
-<td>Birth</td>
-<td>Date</td>
-<td>0001-01-01</td>
-<td></td>
+<td>持久性</td>
+<td>适用持久存储，海量存储</td>
+<td>不适合持久存储，海量存储</td>
 </tr>
 <tr>
-<td>Salary</td>
-<td>Decimal(8,2)</td>
-<td>0.00</td>
-<td></td>
-</tr>
-<tr>
-<td>Lastlogin</td>
-<td>Datetime</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Intro</td>
-<td>Vchar</td>
-<td>“”</td>
-<td></td>
+<td>数据一致性</td>
+<td>事务能力强，强调数据的强一致性</td>
+<td>事务能力弱，强调数据的最终一致性</td>
 </tr>
 </tbody></table>
-<p>优化表</p>
-<p>这张表中除了UserName和Intro列外每一列都为定长，不妨让所有列都定长，可以极大提高查询效率。</p>
-<table>
-<thead>
-<tr>
-<th>列名</th>
-<th>列类型</th>
-<th>默认值</th>
-<th>是否为主键</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Id</td>
-<td>Int unsigned</td>
-<td></td>
-<td>PRI</td>
-</tr>
-<tr>
-<td>UserName</td>
-<td>Char(20)</td>
-<td>“”</td>
-<td></td>
-</tr>
-<tr>
-<td>Gender</td>
-<td>Char(1)/tinyint</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Weight</td>
-<td>Tinyint unsigned</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Birth</td>
-<td>Date</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Salary</td>
-<td>Decimal(8,2)</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Lastlogin</td>
-<td>Int unsigned</td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<p>UserName Char(20)会造成存储空间上的浪费，但可以提高查询效率。</p>
-<p>但是Intro Char(1500)不行，浪费空间过多。Intro不常修改，可以分离出来。</p>
-<table>
-<thead>
-<tr>
-<th>列名</th>
-<th>列类型</th>
-<th>默认值</th>
-<th>是否为主键</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Id</td>
-<td>Int unsigned</td>
-<td></td>
-<td>PRI</td>
-</tr>
-<tr>
-<td>Intro</td>
-<td>Vchar</td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<p><em>在开发过程中，比较频繁使用的信息往往优先考虑效率，存储在一张表中。</em></p>
-<p><em>不常用的信息和比较占空间的信息，优先考虑空间占用，存储到副表</em>。</p>
-<p>建表语法</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> 表名(</span><br><span class="line">列<span class="number">1</span>名 列<span class="number">1</span>类型 列<span class="number">1</span>参数...,</span><br><span class="line">列<span class="number">2</span>名 列<span class="number">2</span>类型 列<span class="number">2</span>参数...,</span><br><span class="line">列<span class="number">3</span>名 列<span class="number">3</span>类型 列<span class="number">3</span>参数...,</span><br><span class="line">...</span><br><span class="line">)engine myisam<span class="operator">/</span>innodb<span class="operator">/</span>bdb charset utf8<span class="operator">/</span>gbk<span class="operator">/</span>latin;</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">member</span>(</span><br><span class="line">id <span class="type">int</span> unsigned auto_increment <span class="keyword">primary</span> key,</span><br><span class="line">username <span class="type">char</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="keyword">null</span> <span class="keyword">default</span> <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">gender <span class="type">char</span>(<span class="number">1</span>) <span class="keyword">not</span> <span class="keyword">null</span> <span class="keyword">default</span> <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">weight tinyint unsigned <span class="keyword">not</span> <span class="keyword">null</span> <span class="keyword">default</span> <span class="number">0</span>,</span><br><span class="line">birth <span class="type">date</span> <span class="keyword">not</span> <span class="keyword">null</span> <span class="keyword">default</span> <span class="string">&#x27;0001-01-01&#x27;</span>,</span><br><span class="line">salary <span class="type">decimal</span>(<span class="number">8</span>,<span class="number">2</span>) <span class="keyword">not</span> <span class="keyword">null</span> <span class="keyword">default</span> <span class="number">0.00</span>,</span><br><span class="line">lastlogin <span class="type">int</span> unsigned <span class="keyword">not</span> <span class="keyword">null</span> <span class="keyword">default</span> <span class="number">0</span></span><br><span class="line">) engine myisam charset utf8;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="改表-列"><a href="#改表-列" class="headerlink" title="改表-列"></a>改表-列</h1><h3 id="增加列"><a href="#增加列" class="headerlink" title="增加列"></a>增加列</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> 表名 <span class="keyword">add</span> 列名  列类型 列参数 </span><br></pre></td></tr></table></figure>
-
-<p>新加的列在表的最后</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> 表名 <span class="keyword">add</span> 列名 列类型 列参数 after 指定列名</span><br></pre></td></tr></table></figure>
-
-<p>新列在指定的列名后</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> 表名 <span class="keyword">add</span> 列名 列类型 列参数 <span class="keyword">first</span></span><br></pre></td></tr></table></figure>
-
-<p>新列放在第一列</p>
-<h3 id="删除列"><a href="#删除列" class="headerlink" title="删除列"></a>删除列</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> 表名 <span class="keyword">drop</span> 列名</span><br></pre></td></tr></table></figure>
-
-<h3 id="修改列类型"><a href="#修改列类型" class="headerlink" title="修改列类型"></a>修改列类型</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> 表名 modify 列名 新列类型 新列参数</span><br></pre></td></tr></table></figure>
-
-<h3 id="修改列名及列类"><a href="#修改列名及列类" class="headerlink" title="修改列名及列类"></a>修改列名及列类</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> 表名 change 列名 新列名 新类型 新参数</span><br></pre></td></tr></table></figure>
-
-<p>主键不会丢失</p>
-<p>数据类型不匹配可能早成数据丢失，在strict_mode下不允许执行。</p>
-<h1 id="MySql数据库–深入学习"><a href="#MySql数据库–深入学习" class="headerlink" title="MySql数据库–深入学习"></a>MySql数据库–深入学习</h1><h2 id="高级查询"><a href="#高级查询" class="headerlink" title="高级查询"></a>高级查询</h2><h3 id="where"><a href="#where" class="headerlink" title="where"></a>where</h3><p>获取是的表达式为真的record</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> 表名 <span class="keyword">where</span> 条件</span><br></pre></td></tr></table></figure>
-
-<p><strong><code>not in</code> 效率低</strong></p>
-<p><code>&gt; &lt; = &lt;&gt;</code> 大于 小于 等于 不等于</p>
-<p><code>and or not</code>与 或 非 <code>&amp;&amp; || ！</code>  and的优先级大于or</p>
-<p><code>between and</code> 在 ~到 ~之间</p>
-<p><code>in</code> 在集合中</p>
-<p><code>like</code> 正则表达是   <code>_</code>任意一个字符  <code>%</code>代表任意字符串</p>
-<p><strong>对于结果中的列进行赛选必须用</strong> <code>having</code></p>
-<p><code>select goods_id, goodes_name, (market_price - shop_price) as discount from goods where discount &gt;200</code><strong>会报错</strong></p>
-<p>一些函数补充    结合分组使用更佳</p>
+<h1 id="Redis使用技巧"><a href="#Redis使用技巧" class="headerlink" title="Redis使用技巧"></a>Redis使用技巧</h1><ul>
+<li><h2 id="层级目录"><a href="#层级目录" class="headerlink" title="层级目录"></a>层级目录</h2></li>
+</ul>
+<p><code>set user:1:cart1:item1 phone</code>    通过格式化的key实现层级目录</p>
 <ul>
-<li><p>max</p>
-</li>
-<li><p>min</p>
-</li>
-<li><p>avg</p>
-</li>
-<li><p>count  count(1) /count(*):数行数      count(列名):数非null行数</p>
-<p>对于myisam 数据库count(1) count(*)没有区别，内部有一个计数器在维护。</p>
-<p>对于innodb，用count(*)直接数行数，效率低。</p>
-</li>
+<li><h3 id="通用删除"><a href="#通用删除" class="headerlink" title="通用删除"></a>通用删除</h3></li>
 </ul>
-<h3 id="group-by"><a href="#group-by" class="headerlink" title="group by"></a>group by</h3><p>分组查询过</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> cat_id, <span class="built_in">sum</span>(goods_number) <span class="keyword">from</span> goods <span class="keyword">group</span> <span class="keyword">by</span> cat_id</span><br></pre></td></tr></table></figure>
-
-<p>select的列需要在group by 里出现。</p>
-<h3 id="having"><a href="#having" class="headerlink" title="having"></a>having</h3><p>投影计算后再经过where赛选输出</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> goods_id, market_price, shop_price, (market_price <span class="operator">-</span> shop_price) <span class="keyword">as</span> discount <span class="keyword">from</span> goods <span class="keyword">where</span> <span class="number">1</span> <span class="keyword">having</span> discount <span class="operator">&gt;</span> <span class="number">200</span>;</span><br></pre></td></tr></table></figure>
-
-<p>逻辑删除，回收站机制(is_delete)</p>
-<h3 id="order-by"><a href="#order-by" class="headerlink" title="order by"></a>order by</h3><p>针对结果集排序</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> goods_id, goods_name, goods_price <span class="keyword">from</span> goods <span class="keyword">where</span> cat_id <span class="operator">=</span> <span class="number">4</span> <span class="keyword">order</span> <span class="keyword">by</span> shop_price <span class="keyword">desc</span>, goods_id <span class="keyword">asc</span>;</span><br></pre></td></tr></table></figure>
-
-<p>asc升序  desc 降序</p>
-<h3 id="limit-offset-N"><a href="#limit-offset-N" class="headerlink" title="limit [offset] N"></a>limit [offset] N</h3><p>取出结果集中的条目， offset 偏移量， N取几个  </p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> goods_id, goods_name, shop_price <span class="keyword">from</span> goods <span class="keyword">where</span> cat_id <span class="operator">=</span> <span class="number">3</span> <span class="keyword">order</span> <span class="keyword">by</span> goods_price <span class="keyword">desc</span> limit <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
-
-<p>注意五种子句的顺序</p>
-<h3 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h3><p><code>in</code> 型，将结果数据集合作为查询条件，如果返回一张表必须用别名。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> goods_id, goods_name, goods_price <span class="keyword">from</span> goods <span class="keyword">where</span> goods_id <span class="keyword">in</span> (<span class="keyword">select</span> masx(goods_id) <span class="keyword">from</span> goods <span class="keyword">group</span> <span class="keyword">by</span> cat_id);</span><br></pre></td></tr></table></figure>
-
-<p>使用<code>in</code>时候内层查询必须为单列</p>
-<p><code>from</code>型， 将结束数据集合作为查询的对象</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> (<span class="keyword">select</span> goods_id, cat_id, goods_name <span class="keyword">from</span> goods <span class="keyword">order</span> <span class="keyword">by</span> cat_id <span class="keyword">asc</span>, goods_id <span class="keyword">desc</span>) <span class="keyword">as</span> tmp <span class="keyword">group</span> <span class="keyword">by</span> goods_id;</span><br></pre></td></tr></table></figure>
-
-
-
-<p><code>exists</code>型，把外层sql结果数据集作为内层的判断条件的数据集</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> caat_id, cat_name <span class="keyword">from</span> category <span class="keyword">where</span> <span class="keyword">exists</span> (<span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> goods <span class="keyword">where</span> goods.cat_id <span class="operator">=</span> category.cat_id);</span><br></pre></td></tr></table></figure>
-
-<p>​    <strong>null 不好比较</strong>   null = null 结果为null, null != null 结果也为null。比较时要用 is null   ， is not null。</p>
-<p>查询时效率不高。故建表时建议使用not null，default</p>
-<h3 id="联表查询"><a href="#联表查询" class="headerlink" title="联表查询"></a>联表查询</h3><ul>
-<li><p>笛卡尔积 全相乘</p>
-<p>表test10 test11 相乘</p>
-</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> test10.sname, test11.cat_id <span class="keyword">from</span> test10, test11;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>错误案例：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> goods_id, minigoods.cat_id, goods_name, category.cat_id, cat_name <span class="keyword">from</span> minigoods, category <span class="keyword">where</span> goods.cat_id <span class="operator">=</span> category.cat_id;</span><br></pre></td></tr></table></figure>
-
-<p> 乘积加判断   数据量大，全相乘后产生的临时表不含索引，不能发挥索引的作用。</p>
-<p>联表 <code>A join B on condition</code> 可以发挥索引的效果</p>
+<p><code>del key</code></p>
 <ul>
-<li>左联接 会保留左表所有record  NULL填充添加的列</li>
+<li><h3 id="失效时间"><a href="#失效时间" class="headerlink" title="失效时间"></a>失效时间</h3></li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> goods_id, minigoods.cat_id, goods_name, category.cat_id, cat_name <span class="keyword">from</span> minigoos <span class="keyword">left</span> <span class="keyword">join</span> category <span class="keyword">on</span> minigoods.cat_id <span class="operator">=</span> category.cat_id;</span><br></pre></td></tr></table></figure>
-
-<p><code>A left join B on condition1 left join on condition2</code></p>
+<p>存入时设置</p>
+<p><code>...    EX time</code>  time单位为秒 <code>PX</code>毫秒 </p>
+<p> <code>nx</code>不存在失败 <code>xx</code>已经存在才成功  实现分布式锁时候使用</p>
+<p>为已存在的key设置</p>
+<p><code>expire key time</code> 对应秒   <code>pexpire</code>为毫秒</p>
+<p>查看失效时间</p>
+<p><code>ttl key</code>  -1永不失效  -2已经失效</p>
 <ul>
-<li>右联接 类比左连接即可  可以相互替代</li>
+<li>存取对象</li>
 </ul>
-<p>右链接可以用左连接替代，一致性考虑只用左连接</p>
+<p>通过json xml等方式实现序列化 反序列化，然后按照键值对方式存取即可。</p>
+<h1 id="Redis持久化方案"><a href="#Redis持久化方案" class="headerlink" title="Redis持久化方案"></a>Redis持久化方案</h1><p>宕机会造成数据丢失。</p>
+<p>磁盘持久化</p>
 <ul>
-<li>内联接  缺少项的过滤掉</li>
-</ul>
-<p>左右内连接的区别</p>
-<ul>
-<li><p>外联接 缺少项保留</p>
-<p>mysql中不支持  </p>
+<li><p><code>bgsave</code> 主动将数据保存到磁盘</p>
 </li>
-<li><p>使用union合并结果集</p>
-<p>拼接结果集合  结合<code>as</code> 取别名，可以取消列名的区别。   不使用别名可以自适应，但是要注意字段数量要相等。</p>
-<p><code>A union B order by</code> </p>
-<p>合并后可以再进行排序。</p>
-<p>mysql可能会优化掉内层排序：内层order by不会影响结果集的时候</p>
-<p>union后的结果有重复，会默认去重，不想去重可以用union all</p>
+<li><p>rdb方案</p>
+<p><code>redsi.conf </code>配置中  <code>dbfilename dump.rdb</code></p>
+<p><code>save 900 1</code>:900秒内一个数据发生了变化，保存   每900秒执行一次</p>
+<p><code>save 300 10</code>:300秒内十个数据发生了变化，保存</p>
+<p><code>save 60 10000</code>:60秒内10000个数据发生了变化，保存</p>
+<p>优点 </p>
+<p>​    不需要手动输入命令</p>
+<p>缺点</p>
+<p>​    依旧可能丢失数据</p>
 </li>
-</ul>
-<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>​            应该用合理的表结构避免函数的使用。</p>
-<p>​            如果对某列使用函数，将创建temp表，无法使用索引。这种情况尽量在业务层层使用函数。</p>
-<h3 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a>数学函数</h3><p>abs(x)                                      绝对值</p>
-<p>bin(x)                                      返回x的二进制表示              hex</p>
-<p>ceiling(x)                                 向上取整                             floor</p>
-<p>exp(x)                                     自然数对数的x次方             ln(x)</p>
-<p>greatest(x1, x2,…)                 取最大值                            least</p>
-<p>rand(N)                                    随机数0-1之间的浮点数 可能等于一</p>
-<p>mod(x,y)                                取余</p>
-<p>pi()                                            Π的值</p>
-<p>sign(x)                                    正弦</p>
-<p>sqrt(x)                                    平方根</p>
-<p>truncate(x,y)                        x截断y位小数</p>
-<h3 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h3><p>avg</p>
-<p>count</p>
-<p>min</p>
-<p>max</p>
-<p>sum</p>
-<p>grounp_contact(列名，分隔符)    分组拼接 逗号连接</p>
-<h3 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a><strong>字符串函数</strong></h3><p>ascii(char)                        返回ascii码</p>
-<p>bit_length(str)                 返回比特长度   char_length(str)字符数 length(str) 字节长度</p>
-<p>concat(s1, s2)                 拼接字符串</p>
-<p>reverse(str)                     按字符反转</p>
-<p>trim(str)                            去掉空格  strim(str)</p>
-<p>positon(substr in str)    返回子串第一次出现的位置 从1数</p>
-<p>right(str, len)                    返回右侧len个字符 left</p>
-<h3 id="日期和时间函数"><a href="#日期和时间函数" class="headerlink" title="日期和时间函数"></a><strong>日期和时间函数</strong></h3><p>curdate() current_date()  当前日期</p>
-<p>curtime() current_time() 时间</p>
-<p>now()                                日期+时间</p>
-<p>dayofweek(date)                    一周中的第几天  dayofmonth(date)  </p>
-<p>week(date)                        一年中的第几周    year(date)</p>
-<h3 id="加密函数"><a href="#加密函数" class="headerlink" title="加密函数"></a>加密函数</h3><p>md5()                                不可逆  校验数据</p>
-<p>​                            </p>
-<p>​    <strong>控制流程函数</strong>  </p>
-<p>case 值 when  condition then  值，…  else 值 end      多分支流程</p>
-<p>if( expression, val1，val2 )  </p>
-<p>ifnull( expression， value)    expression为null返回值，否则返回expression结果</p>
-<h3 id="格式化函数"><a href="#格式化函数" class="headerlink" title="格式化函数"></a>格式化函数</h3><h3 id="类型转换函数"><a href="#类型转换函数" class="headerlink" title="类型转换函数"></a>类型转换函数</h3><h3 id="系统信息函数"><a href="#系统信息函数" class="headerlink" title="系统信息函数"></a><strong>系统信息函数</strong></h3><p>user()        返回当前用户及主机</p>
-<p>getbase()   正在操作的库名</p>
-<p>version()  获取MySql版本</p>
-<h2 id="View视图"><a href="#View视图" class="headerlink" title="View视图"></a>View视图</h2><p>​        view可以看成一张虚拟的表，是表通过某种运算得出的投影。可以将经常用到的可能变化的数据结果集合作为View存储。表的变化会影响到视图。视图也可能影响到基表。</p>
-<p>​    <strong>.frm表结果 .myd表数据 .myi索引文件</strong></p>
-<p>​    简化查询</p>
-<p>​        查询视图，避免冗长的sql语句</p>
-<p>​    精细化权限控制</p>
-<p>​        在合作时候开放视图权限。</p>
-<p>​    多表联查的时候也可以使用</p>
-<p>​        hash方式分表等</p>
-<ul>
-<li><p><strong>创建视图</strong></p>
-<p>​    create view  [algorithm=arg]  视图名   as select。。。</p>
-<p><strong>algorithm</strong>用于决定是否建立临时表。对于一些简单的视图，不会建立临时表，二十直接使用sql语句。建立临时表会增加查询消耗。</p>
-<ul>
-<li>mere参数  合并语句</li>
-<li>temptable参数 临时表</li>
-<li>undefined参数 由系统决定</li>
-</ul>
-</li>
-<li><p><strong>删除视图</strong></p>
-<p>​    drop view 视图名</p>
-</li>
-<li><p><strong>查询视图</strong></p>
-<p>像表一样查询即可</p>
-</li>
-<li><p><strong>修改视图</strong></p>
-<p>不能明确映射到原表的修改的修改是不能执行的。一一对应：能否反推。</p>
+<li><p>aof方案</p>
 </li>
 </ul>
-<h2 id="临时表"><a href="#临时表" class="headerlink" title="临时表"></a>临时表</h2><p>​        MySQL 临时表在我们需要保存一些临时数据时是非常有用的。临时表只在当前连接可见，当关闭连接时，Mysql会自动删除表并释放所有空间。</p>
+<p><code>redsi.conf </code>配置中 </p>
+<p> <code>appendonly no </code> 开启后rdb默认失效</p>
+<p><code>appendfilename &quot;appendonly.aof&quot;</code> 文件存放位置</p>
+<p>存放所有命令。实时性强，不会存在丢失。</p>
+<p>aof文件大小会不断累加。</p>
 <ul>
-<li>使用查询语句创建临时表</li>
+<li>aof+rdb方案</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> TEMPORARY <span class="keyword">TABLE</span> 临时表名 <span class="keyword">AS</span></span><br><span class="line">(</span><br><span class="line">    <span class="keyword">SELECT</span> <span class="operator">*</span>  <span class="keyword">FROM</span> 旧的表名</span><br><span class="line">    LIMIT <span class="number">0</span>,<span class="number">10000</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h1 id="Redis搭建主从服用模型"><a href="#Redis搭建主从服用模型" class="headerlink" title="Redis搭建主从服用模型"></a>Redis搭建主从服用模型</h1><p>主从服务器</p>
+<p>主服务器  负责写</p>
+<p>从服务器  只能读</p>
+<p><code>info replication</code></p>
+<p>优点:解决了单点故障</p>
+<p>缺点:主服务器挂掉  会产生脏数据</p>
+<p>​        三台服务器数据一样，资源浪费</p>
+<p>发现主节点挂掉后，重新选举一个主节点</p>
+<p><code>sentinel</code></p>
+<p><code>sentinel.conf</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sentinel monitor mymaster 192.168.10.100 6379 2</span><br><span class="line">sentinel auth-pass mymaster root		&#x2F;&#x2F; 知道密码才能监控</span><br><span class="line">sentinel down-afer-milliseconds 30000	&#x2F;&#x2F; 监控30s延迟  避免网络波动造成的误判 </span><br><span class="line">sentinel failover-timeout mymaster 180000 &#x2F;&#x2F; 连续三分钟没能选举成功则放弃选举</span><br></pre></td></tr></table></figure>
 
+<p>集群</p>
+<p>原生集群</p>
+<p>redis coi  通过集群配置 meet实现相互通信  脚本设置槽位</p>
+<p>redis-trib</p>
+<p>第三方</p>
+<p>codis 中间层</p>
+<p>优点：高可靠</p>
+<p>缺点：成本高 配置复杂</p>
+<h1 id="缓存问题的解决方案"><a href="#缓存问题的解决方案" class="headerlink" title="缓存问题的解决方案"></a>缓存问题的解决方案</h1><p><strong>带缓存数据查询流程</strong></p>
+<ol>
+<li>查询缓存，缓存数据存在则直接返回，否则查询数据库</li>
+<li>查询数据，数据存在则返回数据，并添加到缓存，否则返回无数据</li>
+</ol>
+<p><strong>key的过期淘汰机制</strong></p>
+<p>​    Redis可以设置缓存数据的过期时间。但不是过期时间一道，马上就会删除数据。</p>
 <ul>
-<li>手动删除临时表</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> 临时表名;</span><br></pre></td></tr></table></figure>
-
-<h2 id="字符集编码"><a href="#字符集编码" class="headerlink" title="字符集编码"></a>字符集编码</h2><p>​    <strong>ASCII</strong> 可以查看asccii码表</p>
-<p>​    <strong>GB2312</strong> 2byte 不占用 0-127  收录6763个常用字</p>
-<p>​    <strong>BGK</strong>   2byte     兼容GB2312  第二个字节不再局限于128-255</p>
-<p>​    <strong>unicode</strong>  4byte 国际化 世界通用码表  常用的为前65536字节  不兼容ascii</p>
-<p>​    <strong>utf-8</strong>     简化unicode编码  常用于网络  不定长1-6个字节  [英文  中文]  utf8+有bom头</p>
-<p>​    <strong>ANSI</strong>：本地字符集(本地化)</p>
-<p>​    数据库通过<strong>连接器</strong>实现字符集转换。<strong>连接器</strong>位于客户端和数据库存储器之间。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 客户端为编码为gbk</span><br><span class="line"><span class="keyword">set</span> character_set_client<span class="operator">=</span>gbk;</span><br><span class="line"></span><br><span class="line"># 连接器使用utf<span class="number">-8</span></span><br><span class="line"><span class="keyword">set</span> character_set_connection<span class="operator">=</span>utf8;</span><br><span class="line"></span><br><span class="line"># 返回值使用gbk编码</span><br><span class="line"><span class="keyword">set</span> character_set_results<span class="operator">=</span>gbk;</span><br><span class="line"></span><br><span class="line"># 简写</span><br><span class="line"><span class="keyword">set</span> names gbk</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h2><p>​            存储引擎决定了MySql存储数据的方式。</p>
-<ul>
-<li>Myisam 批量插入速度快，不检查数据。支持全文索引。仅支持表锁。</li>
-<li>不支持事务安全。</li>
-<li>InnoDb   事务安全性更高。支持到行的索引。支持事务安全。</li>
-<li>BDB</li>
-<li>Memory</li>
-<li>Archive</li>
-</ul>
-<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><p><strong>事务属性</strong>：</p>
-<ul>
-<li><p>原子性  </p>
-<p>操作集在逻辑上不可分割。  事件回滚。</p>
+<li><p>定期删除</p>
+<p>Redis默认是每隔100马上就随机抽取一些设置了过期时间的key，检查其是否过期，如果过期就删除。采用定期随机检测方式主要是出于性能考虑。(如果数据量很大，每次全查很消耗性能)</p>
 </li>
-<li><p>一致性 </p>
-<p>操作前后值的变化逻辑上成立。  溢出会执行失败。</p>
-</li>
-<li><p>隔离性 </p>
-<p>执行操作过程中，对被操作对象的别的操作会禁止。事务结束前，事务操作带来的结果别人无法看到。</p>
-</li>
-<li><p>持久性</p>
-<p>事务一旦执行后，无法撤销。使用补偿性事务，处理发生的错误。</p>
+<li><p>惰性删除</p>
+<p>随机抽取会导致很多key到了过期时间而没有被删除。用户在查key的时候，Redis会再次检测是否过期，过期则删除这个key。但任然存在过期不会删除的情况。</p>
 </li>
 </ul>
-<p>​    <code>start transaction</code>         开始事务。</p>
-<p>​    <code>commit</code>                                提交事务</p>
-<p>​    <code>rollback</code>                            回滚</p>
-<h2 id="触发器"><a href="#触发器" class="headerlink" title="触发器"></a>触发器</h2><p>触发器（trigger）：由事件来触发，例如当对一个表进行操作（ insert，delete， update）时就会激活它执行，是与表事件相关的特殊的存储过程。<br>    触发器经常用于加强数据的完整性约束和业务规则等。 触发器创建语法四要素：<br>    1.监视地点(table)<br>    2.监视事件(insert/update/delete)<br>    3.触发时间(after/before)<br>    4.触发事件(insert/update/delete)</p>
-<p>语法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create trigger 触发器名 after&#x2F;before insert&#x2F;update&#x2F;delete on 表名  for each row for each row</span><br></pre></td></tr></table></figure>
-
-<p>参考阅读：</p>
-<p><a target="_blank" rel="noopener" href="http://www.cnblogs.com/zzwlovegfj/archive/2012/07/04/2576989.html">mysql之触发器trigger - 郑志伟</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36396104/article/details/80469997/">一篇很棒的 MySQL 触发器学习教程</a></p>
-<h2 id="备份和恢复"><a href="#备份和恢复" class="headerlink" title="备份和恢复"></a>备份和恢复</h2><p><strong>使用 SELECT … INTO OUTFILE 语句导出数据</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 导出表到文件</span><br><span class="line">SELECT * FROM runoob_tbl INTO OUTFILE &#39;&#x2F;tmp&#x2F;runoob.txt&#39;;</span><br><span class="line"></span><br><span class="line"># 导出表到文件 使用逗号分隔  用&quot;包裹  \r\n最为换行标志</span><br><span class="line">mysql&gt; SELECT * FROM passwd INTO OUTFILE &#39;&#x2F;tmp&#x2F;runoob.txt&#39;</span><br><span class="line">    -&gt; FIELDS TERMINATED BY &#39;,&#39; ENCLOSED BY &#39;&quot;&#39;</span><br><span class="line">    -&gt; LINES TERMINATED BY &#39;\r\n&#39;;</span><br></pre></td></tr></table></figure>
-
-<p><strong>使用mysqldump备份和恢复</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 导出表</span><br><span class="line">mysqldump -u root -p --no-create-info --tab&#x3D;&#x2F;tmp RUNOOB runoob_tbl</span><br><span class="line"></span><br><span class="line"># 导出数据库</span><br><span class="line">mysqldump -u root -p RUNOOB &gt; database_dump.txt</span><br><span class="line"></span><br><span class="line"># 导出所有数据库</span><br><span class="line">mysqldump -u root -p --all-databases &gt; database_dump.txt</span><br><span class="line"></span><br><span class="line"># 远程导出</span><br><span class="line">mysqldump -h other-host.com -P port -u root -p database_name &gt; dump.txt</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 导入数据</span><br><span class="line">mysql -u root -p database_name &lt; dump.txt</span><br><span class="line"></span><br><span class="line"># 远程导入</span><br><span class="line">mysqldump -u root -p database_name | mysql -h other-host.com database_name</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="安全性问题"><a href="#安全性问题" class="headerlink" title="安全性问题"></a>安全性问题</h2><p><strong>SQL注入</strong></p>
-<p>​        通过把SQL命令插入到Web表单递交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令。</p>
-<p><strong>解决方法</strong>    </p>
+<p><strong>内存淘汰机制</strong></p>
+<p>定期删除和惰性删除都无法即使删除的数据，会在内存中堆积，造成资源消耗。</p>
 <ul>
-<li>严格限定用户的输入</li>
-<li>检查sql关键词</li>
+<li>volatile-lru(一般采用):从已设置过期时间的数据集中挑选最近最少使用的数据删除。</li>
+<li>volatile-ttl:从已设置过期时间的数据集中挑选将要过期的数据删除。</li>
+<li>volatile-random:从已设置过期时间的数据集中随机挑选删除。</li>
+<li>allkeys-lru:移除最近最少使用的key。</li>
+<li>allkeys-random:随机移除。</li>
+<li>no-enviciton(默认)：当内存不足以容纳新数据时候，会产生错误。</li>
 </ul>
-<p>一些建议</p>
+<p>重要数据设置永不过期。配置信息保存到数据库。</p>
+<h2 id="缓存击穿"><a href="#缓存击穿" class="headerlink" title="缓存击穿"></a>缓存击穿</h2><p>由于热门key缓存过期，导致大量访问涌入数据库。</p>
 <ul>
-<li>永远不要信任用户的输入。对用户的输入进行校验，可以通过正则表达式，或限制长度；对单引号和 双”-“进行转换等。</li>
-<li>2.永远不要使用动态拼装sql，可以使用参数化的sql或者直接使用存储过程进行数据查询存取。</li>
-<li>3.永远不要使用管理员权限的数据库连接，为每个应用使用单独的权限有限的数据库连接。</li>
-<li>4.不要把机密信息直接存放，加密或者hash掉密码和敏感的信息。</li>
-<li>5.应用的异常信息应该给出尽可能少的提示，最好使用自定义的错误信息对原始错误信息进行包装</li>
-<li>6.sql注入的检测方法一般采取辅助软件或网站平台来检测，软件一般采用sql注入检测工具jsky，网站平台就有亿思网站安全平台检测工具。MDCSOFT SCAN等。采用MDCSOFT-IPS可以有效的防御SQL注入，XSS攻击等。</li>
+<li>不在Redis设置过期时间，而添加一个过期表示。当数据即将过期时，启动异步线程主动更新缓存。该方案任然存在拿到脏数据的可能。</li>
+<li>如果数据必须时新数据。除了设置为永不过期外，外加一个互斥锁，保证缓存的单线程写。但是锁会降低性能。</li>
 </ul>
-<p><strong>Like语句中的注入</strong></p>
-<p>​        like查询时，如果用户输入的值有”<em>“和”%”，则会出现这种情况：用户本来只是想查询”abcd</em>“，查询结果中却有”abcd_”、”abcde”、”abcdf”等等；</p>
-<p><strong>解决办法</strong></p>
-<p>转义匹配符号，如使用addcslashes() 函数在指定的字符前添加反斜杠。</p>
+<h2 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="缓存穿透"></a>缓存穿透</h2><p>缓存和数据库均不能获取数据。</p>
+<p>造成原因：确实没有  恶意攻击</p>
+<p>解决方案</p>
+<ul>
+<li>缓存失效时，先去获取锁，等到锁后再去请求数据库，没有得到则一段时间后再试。</li>
+<li>采用异步更新策略，无论key是否渠道值都直接返回。value值中委会一个缓存失效时间，缓存过期，异步启一个线程去都数据库，更新缓存。需要做缓存预热(项目启动前，线加载部分缓存数据)</li>
+<li>提供一个能迅速判断请求是否有效的拦截机制。比如：布隆过滤器，内部维护一系列合法有效的key。迅速判断出，请求所携带的key是否合法有效，如果不合法则直接返回。</li>
+<li>如果从数据库查询的对象为空，也加入缓存，知识设定的缓存过期时间比较短。</li>
+</ul>
+<h2 id="缓存雪崩"><a href="#缓存雪崩" class="headerlink" title="缓存雪崩"></a>缓存雪崩</h2><p>大量热门key缓存失效。由于查询量过大导致DB宕机。</p>
+<p>解决方案</p>
+<ul>
+<li>给缓存的失效时间，加上一个随机值，避免集体失效。</li>
+<li>如果是集群部署，在不同的结点分布热点key。</li>
+<li>使用互斥锁，明显降低吞吐量。</li>
+<li>双缓存，多级缓存。缓存A失效时间二十分钟，B不设失效时间。自己做缓存预热。<ol>
+<li>缓存A有则直接返回。没有则从B读取。</li>
+<li>B有返回，并启动一个异步更行A。</li>
+<li>B没有，启动一个异步线程更新A和B。</li>
+</ol>
+</li>
+</ul>
 
       
 
@@ -868,7 +513,7 @@ var loadingTimer=self.setInterval(function clock()
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">学习笔笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
         		</li>
       		
 		</ul>
@@ -924,7 +569,7 @@ var loadingTimer=self.setInterval(function clock()
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/tinybeer.github.io/2021/03/19/MySql%E5%AD%A6%E4%B9%A0/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/tinybeer.github.io/2021/03/20/Redis%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -938,18 +583,9 @@ var loadingTimer=self.setInterval(function clock()
   
 <nav id="article-nav">
   
-    <a href="/tinybeer.github.io/2021/03/20/Redis%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Redis深入学习
-        
-      </div>
-    </a>
   
-  
-    <a href="/tinybeer.github.io/2021/03/19/Gorm%E5%AD%A6%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Gorm学习</div>
+    <a href="/tinybeer.github.io/2021/03/19/MySql%E5%AD%A6%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MySql学习</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -967,7 +603,7 @@ var loadingTimer=self.setInterval(function clock()
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A5%E5%B8%B8%E6%93%8D%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">日常操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%93%E7%9B%B8%E5%85%B3"><span class="toc-number">1.1.</span> <span class="toc-text">数据库库相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%BA%93"><span class="toc-number">1.1.1.</span> <span class="toc-text">查看库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E5%BA%93"><span class="toc-number">1.1.2.</span> <span class="toc-text">选库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%A1%A8"><span class="toc-number">1.1.3.</span> <span class="toc-text">查看表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E5%BA%93"><span class="toc-number">1.1.4.</span> <span class="toc-text">建库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E5%BA%93"><span class="toc-number">1.1.5.</span> <span class="toc-text">删库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%B9%E5%90%8D"><span class="toc-number">1.1.6.</span> <span class="toc-text">改名</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E7%9B%B8%E5%85%B3"><span class="toc-number">1.2.</span> <span class="toc-text">表相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E8%A1%A8"><span class="toc-number">1.2.1.</span> <span class="toc-text">建表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%B9%E8%A1%A8%E5%90%8D"><span class="toc-number">1.2.2.</span> <span class="toc-text">改表名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%85%E7%A9%BA%E8%A1%A8"><span class="toc-number">1.2.3.</span> <span class="toc-text">清空表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E5%AD%97%E7%AC%A6%E9%9B%86"><span class="toc-number">1.2.4.</span> <span class="toc-text">选择字符集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%A1%A8%E7%BB%93%E6%9E%84"><span class="toc-number">1.2.5.</span> <span class="toc-text">查看表结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%B0%E5%BD%95%E7%9B%B8%E5%85%B3"><span class="toc-number">1.3.</span> <span class="toc-text">记录相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E5%85%A5"><span class="toc-number">1.3.1.</span> <span class="toc-text">插入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%B9"><span class="toc-number">1.3.2.</span> <span class="toc-text">改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4"><span class="toc-number">1.3.3.</span> <span class="toc-text">删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE"><span class="toc-number">1.3.4.</span> <span class="toc-text">查找</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E6%8A%80%E5%B7%A7"><span class="toc-number">1.4.</span> <span class="toc-text">小技巧</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MySql%E8%BF%9B%E9%98%B6"><span class="toc-number">2.</span> <span class="toc-text">MySql进阶</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.0.1.</span> <span class="toc-text">数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E5%9E%8B"><span class="toc-number">2.0.1.1.</span> <span class="toc-text">数值型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">2.0.2.</span> <span class="toc-text">字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.0.3.</span> <span class="toc-text">日期时间类型</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BB%BA%E8%A1%A8%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90"><span class="toc-number">3.</span> <span class="toc-text">建表案例分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%94%B9%E8%A1%A8-%E5%88%97"><span class="toc-number">4.</span> <span class="toc-text">改表-列</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A2%9E%E5%8A%A0%E5%88%97"><span class="toc-number">4.0.1.</span> <span class="toc-text">增加列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%88%97"><span class="toc-number">4.0.2.</span> <span class="toc-text">删除列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%88%97%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.0.3.</span> <span class="toc-text">修改列类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%88%97%E5%90%8D%E5%8F%8A%E5%88%97%E7%B1%BB"><span class="toc-number">4.0.4.</span> <span class="toc-text">修改列名及列类</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MySql%E6%95%B0%E6%8D%AE%E5%BA%93%E2%80%93%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0"><span class="toc-number">5.</span> <span class="toc-text">MySql数据库–深入学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E7%BA%A7%E6%9F%A5%E8%AF%A2"><span class="toc-number">5.1.</span> <span class="toc-text">高级查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#where"><span class="toc-number">5.1.1.</span> <span class="toc-text">where</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#group-by"><span class="toc-number">5.1.2.</span> <span class="toc-text">group by</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#having"><span class="toc-number">5.1.3.</span> <span class="toc-text">having</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#order-by"><span class="toc-number">5.1.4.</span> <span class="toc-text">order by</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#limit-offset-N"><span class="toc-number">5.1.5.</span> <span class="toc-text">limit [offset] N</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="toc-number">5.1.6.</span> <span class="toc-text">子查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%94%E8%A1%A8%E6%9F%A5%E8%AF%A2"><span class="toc-number">5.1.7.</span> <span class="toc-text">联表查询</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0"><span class="toc-number">5.2.</span> <span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6%E5%87%BD%E6%95%B0"><span class="toc-number">5.2.1.</span> <span class="toc-text">数学函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0"><span class="toc-number">5.2.2.</span> <span class="toc-text">聚合函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0"><span class="toc-number">5.2.3.</span> <span class="toc-text">字符串函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4%E5%87%BD%E6%95%B0"><span class="toc-number">5.2.4.</span> <span class="toc-text">日期和时间函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E5%AF%86%E5%87%BD%E6%95%B0"><span class="toc-number">5.2.5.</span> <span class="toc-text">加密函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%87%BD%E6%95%B0"><span class="toc-number">5.2.6.</span> <span class="toc-text">格式化函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0"><span class="toc-number">5.2.7.</span> <span class="toc-text">类型转换函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF%E5%87%BD%E6%95%B0"><span class="toc-number">5.2.8.</span> <span class="toc-text">系统信息函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#View%E8%A7%86%E5%9B%BE"><span class="toc-number">5.3.</span> <span class="toc-text">View视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%B4%E6%97%B6%E8%A1%A8"><span class="toc-number">5.4.</span> <span class="toc-text">临时表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E9%9B%86%E7%BC%96%E7%A0%81"><span class="toc-number">5.5.</span> <span class="toc-text">字符集编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E"><span class="toc-number">5.6.</span> <span class="toc-text">存储引擎</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1"><span class="toc-number">5.7.</span> <span class="toc-text">事务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="toc-number">5.8.</span> <span class="toc-text">触发器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%87%E4%BB%BD%E5%92%8C%E6%81%A2%E5%A4%8D"><span class="toc-number">5.9.</span> <span class="toc-text">备份和恢复</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E6%80%A7%E9%97%AE%E9%A2%98"><span class="toc-number">5.10.</span> <span class="toc-text">安全性问题</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">性能：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#linux%E4%B8%8B%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-number"></span> <span class="toc-text">linux下的配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E5%8F%B0%E5%90%AF%E5%8A%A8"><span class="toc-number">1.</span> <span class="toc-text">后台启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E4%BF%9D%E6%8A%A4"><span class="toc-number">2.</span> <span class="toc-text">连接保护</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">3.</span> <span class="toc-text">连接数据库</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E9%9D%9E%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number"></span> <span class="toc-text">关系型数据库和非关系型数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.</span> <span class="toc-text">关系型数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-number">1.1.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AE%E5%AE%9A"><span class="toc-number">1.2.</span> <span class="toc-text">确定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E8%A1%A8%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.3.</span> <span class="toc-text">代表数据库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%9E%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">2.</span> <span class="toc-text">非关系型数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E7%82%B9-1"><span class="toc-number">2.1.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-number">2.2.</span> <span class="toc-text">缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E8%A1%A8%E6%95%B0%E6%8D%AE%E5%BA%93-1"><span class="toc-number">2.3.</span> <span class="toc-text">代表数据库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AF%94%E8%BE%83"><span class="toc-number">3.</span> <span class="toc-text">比较</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Redis%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7"><span class="toc-number"></span> <span class="toc-text">Redis使用技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%82%E7%BA%A7%E7%9B%AE%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">层级目录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E7%94%A8%E5%88%A0%E9%99%A4"><span class="toc-number">1.1.</span> <span class="toc-text">通用删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%B1%E6%95%88%E6%97%B6%E9%97%B4"><span class="toc-number">1.2.</span> <span class="toc-text">失效时间</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Redis%E6%8C%81%E4%B9%85%E5%8C%96%E6%96%B9%E6%A1%88"><span class="toc-number"></span> <span class="toc-text">Redis持久化方案</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Redis%E6%90%AD%E5%BB%BA%E4%B8%BB%E4%BB%8E%E6%9C%8D%E7%94%A8%E6%A8%A1%E5%9E%8B"><span class="toc-number"></span> <span class="toc-text">Redis搭建主从服用模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number"></span> <span class="toc-text">缓存问题的解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E5%87%BB%E7%A9%BF"><span class="toc-number">1.</span> <span class="toc-text">缓存击穿</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F"><span class="toc-number">2.</span> <span class="toc-text">缓存穿透</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9"><span class="toc-number">3.</span> <span class="toc-text">缓存雪崩</span></a></li></ol>
                     </div>
                 </span>
             </div>
