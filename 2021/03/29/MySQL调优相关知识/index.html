@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github.com/tinybeer.github.io">
-  <title>Archives: 2021/3 | 困</title>
+  <title>MySQL调优相关知识 | 困</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="困">
-<meta property="og:url" content="https://github.com/tinybeer.github.io/archives/2021/03/index.html">
+  <meta name="description" content="MySql架构1.连接器 connector 2.连接池 pool 3.查询缓存 4.解析器 5.优化器 6.存储引擎  MyIsam InnoDB Memory 等 7.文件系统 InnoDB  支持行锁  事务等">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL调优相关知识">
+<meta property="og:url" content="https://github.com/tinybeer.github.io/2021/03/29/MySQL%E8%B0%83%E4%BC%98%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/index.html">
 <meta property="og:site_name" content="困">
+<meta property="og:description" content="MySql架构1.连接器 connector 2.连接池 pool 3.查询缓存 4.解析器 5.优化器 6.存储引擎  MyIsam InnoDB Memory 等 7.文件系统 InnoDB  支持行锁  事务等">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-29T00:27:24.000Z">
+<meta property="article:modified_time" content="2021-03-29T00:28:45.049Z">
 <meta property="article:author" content="Tiny Beer">
+<meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="困" type="application/atom+xml">
@@ -204,36 +209,249 @@ var loadingTimer=self.setInterval(function clock()
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-MySQL调优相关知识" class="article article-type-post " itemscope itemprop="blogPost">
+
+ <!-- 目录内容 -->
+ 
+  <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();">
+  <span class="btn-bg"></span>
+  <span class="btn-text">文章导航</span>
+  </p>
+  <div id="toc-article" class="toc-article"  style="display:none">
+      <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+      <strong class="toc-title">文章目录</strong>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#MySql%E6%9E%B6%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">MySql架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B5%E7%BB%93%E6%9E%84"><span class="toc-number">2.</span> <span class="toc-text">页结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%8C%E6%A0%BC%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">行格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95"><span class="toc-number">4.</span> <span class="toc-text">索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1"><span class="toc-number">5.</span> <span class="toc-text">事务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%94%E7%A6%BB%E6%80%A7%EF%BC%9A"><span class="toc-number">5.1.</span> <span class="toc-text">隔离性：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%94%81"><span class="toc-number">6.</span> <span class="toc-text">锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84"><span class="toc-number">7.</span> <span class="toc-text">树形结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-number">8.</span> <span class="toc-text">常见面试题</span></a></li></ol>
+ </div>
+ <script type="text/javascript">
+  function showToc(){
+      var toc_article = document.getElementById("toc-article");
+      var show_toc_btn = document.getElementById("show-toc-btn");
+      toc_article.setAttribute("style","display:block");
+      show_toc_btn.setAttribute("style","display:none");
+      };
+  function showBtn(){
+      var toc_article = document.getElementById("toc-article");
+      var show_toc_btn = document.getElementById("show-toc-btn");
+      toc_article.setAttribute("style","display:none");
+      show_toc_btn.setAttribute("style","display:block");
+      };
+ </script>
+     
+<!-- 目录内容结束 -->
+
+
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      MySQL调优相关知识
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/tinybeer.github.io/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/tinybeer.github.io/2021/03/29/MySQL%E8%B0%83%E4%BC%98%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/" class="archive-article-date">
+
+        
+        <a href="/tinybeer.github.io/2021/03/29/MySQL%E8%B0%83%E4%BC%98%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/" class="archive-article-date">
   	<time datetime="2021-03-29T00:27:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-29</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/tinybeer.github.io/2021/03/29/MySQL%E8%B0%83%E4%BC%98%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/">MySQL调优相关知识</a>
-    </h1>
-  
+        
 
-        <div class="article-info info-on-right">
+         <!-- 开始添加字数统计-->
+         
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">1.2k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">4分</span>
+      </span>
+    </span>
+</div>
           
+        <!-- 添加完成 -->
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+        <h2 id="MySql架构"><a href="#MySql架构" class="headerlink" title="MySql架构"></a>MySql架构</h2><p>1.连接器 connector</p>
+<p>2.连接池 pool</p>
+<p>3.查询缓存</p>
+<p>4.解析器</p>
+<p>5.优化器</p>
+<p>6.存储引擎  MyIsam InnoDB Memory 等</p>
+<p>7.文件系统</p>
+<p>InnoDB  支持行锁  事务等</p>
+<span id="more"></span>
+
+<p>MySql</p>
+<p>行： 一条记录</p>
+<p>页：多行数据 默认16k   操作系统中页的单位是4k</p>
+<p>基于局部性原理，一次取出一页，进行选取。</p>
+<h2 id="页结构"><a href="#页结构" class="headerlink" title="页结构"></a>页结构</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>File Header 文件头部</td>
+<td>38B  页的一些通用信息</td>
+</tr>
+<tr>
+<td>Page Header 页面头部</td>
+<td>56B 数据页专有的一些信息  指针</td>
+</tr>
+<tr>
+<td>Infimum+Supermum Records 最小记录+最大记录</td>
+<td>26B 两个虚拟行记录</td>
+</tr>
+<tr>
+<td>User Records 用户记录</td>
+<td>不定 实际存储行记录空间</td>
+</tr>
+<tr>
+<td>Free Space 空闲空间</td>
+<td>不定 页中位使用空间</td>
+</tr>
+<tr>
+<td>Page Directory 文件目录</td>
+<td>*不定 页中某些记录的相对位置</td>
+</tr>
+<tr>
+<td>File Trailer 文件尾部</td>
+<td>8B 校验页是否完整</td>
+</tr>
+</tbody></table>
+<h2 id="行格式"><a href="#行格式" class="headerlink" title="行格式"></a>行格式</h2><p>一行记录可以以不同形式存储在InnoDB中，行格式分别为Compact Redundant Dynamic(默认) 和 Compressed行格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE 表名 (列信息) ROW_FORMAT&#x3D;行格式名称</span><br><span class="line">ALTER TABLE 表名 ROW_FORMAT &#x3D; 行格式名称</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>COMPACT行格式：</li>
+</ul>
+<p><code>**变长字段长度列表**NULL标志位**记录头信息**列1数据** ...**</code></p>
+<p>除BOLB数据外  所有数据之和不能超过65535字节</p>
+<p>存储数据量大于16k时候，发生行溢出。COMPACT:用户数据+下一页地址     </p>
+<ul>
+<li><p>Dynamic：行溢出时候，只存储其他表地址，不存储数据。</p>
+</li>
+<li><p>Compressed：会使用压缩算法对页面进行压缩</p>
+</li>
+</ul>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>索引是一种数据结构，存储于磁盘中。提高检索效率。</p>
+<p><code>.frm</code>建表脚本  <code>.idb</code> 索引加数据</p>
+<p>MyIsam：默认插入顺序存储</p>
+<p>InnoDB：会根据主键进行数据整理  有序存储 B+树    组目录 存储主键分组和组起始地址  页目录   <strong>聚簇索引</strong>  没有定义主键(使用唯一字段)   都没有默认使用自动生成的RowID  <strong>主键ID要尽量短</strong>  先复制第一页再开辟第二页，把起始页改成目录页</p>
+<p>辅助索引：唯一索引  非唯一索引。。。会创建B+树，叶子节点存储主键</p>
+<p>explain 查看是否使用到索引  type : ALL全表扫描  idx ref range使用到索引 possible_keys:可能用到的索引 key:真正使用的索引 useringfilesort 单独排序</p>
+<p>辅助索引+回表</p>
+<p><code>explain select * from table where b=1 and c=1 and d=1</code></p>
+<p>使用索引：最左前缀原则</p>
+<p>MySql:<strong>utf8:0-3B  utf8mb4：0-4B</strong></p>
+<p>NULL小于所有数  </p>
+<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><p>ACID：</p>
+<ul>
+<li><p>原子性  Atomicity</p>
+</li>
+<li><p>一致性 Consistency</p>
+</li>
+<li><p>隔离性 Isolation</p>
+</li>
+<li><p>持久性 Durability</p>
+</li>
+</ul>
+<p>事务自动提交：autocommit属性   DDL、加锁、修改表等会进行隐式提交</p>
+<p><code>show variables like &#39;autocommit&#39;</code></p>
+<p>保存点：回滚的保存点。</p>
+<h3 id="隔离性："><a href="#隔离性：" class="headerlink" title="隔离性："></a>隔离性：</h3><p>隔离级别：</p>
+<ul>
+<li>读未提交：未提交可以读到，使用不多。  脏读 。 read uncommited;</li>
+<li>读已提交：只能读到已经提交的事务结果。不可重复读 幻读。read commited;  仅对查出数据加锁</li>
+<li>可重复读(默认)：可能幻读。 repeatable read 会加锁间隙 ，防止幻读，不适用索引，会锁全表</li>
+<li>串行化：阻塞读写。  读读不会阻塞。</li>
+</ul>
+<p>实现:</p>
+<p>版本链  ReadView(寻找提交了的事务) MVCC(多版本并发控制， Multi-VersiionConcurrent Control)</p>
+<p>row_id  transaction_id roll_pointer</p>
+<h2 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h2><ul>
+<li><p>读锁 共享锁 Shared Locks S锁 <code>...  in share mode</code></p>
+</li>
+<li><p>写锁 排他锁 Exclusive Locks X锁 <code>... for update</code> <code>delete</code> [<code>insert</code>隐式锁，切换为排他锁]</p>
+</li>
+<li><p>不锁  select…</p>
+</li>
+</ul>
+<p>LOCK_REC_NOT_GAP 行锁   一行数据</p>
+<p>LOCK_GAP 间隙锁  键之间</p>
+<p>LOCK_ORDINARY: 锁行加上下间隙</p>
+<p>释放：commit 或 rollback</p>
+<p>意向锁   避免锁冲突</p>
+<p>IS 意向共享锁</p>
+<p>IX 意向排他锁</p>
+<h2 id="树形结构"><a href="#树形结构" class="headerlink" title="树形结构"></a>树形结构</h2><ul>
+<li>二叉树 排序</li>
+<li>红黑树 (高度)</li>
+</ul>
+<p>逻辑约束：</p>
+<p>1.节点是红色或黑色</p>
+<p>2.根结点是黑色</p>
+<p>3.每个红色节点的两个子节点是黑色</p>
+<p>4.插入的结点默认是红色</p>
+<p>5.。。。</p>
+<p>平衡措施</p>
+<p>1.变色</p>
+<p>2.自旋</p>
+<ul>
+<li>B树 B+树</li>
+</ul>
+<p>逻辑约束</p>
+<p>1.度 结点的数据存储个数</p>
+<p>2.叶节点具有相同的度</p>
+<p>3.叶节点的指针为空</p>
+<p>4.叶节点的数据key从左到右递增排列</p>
+<ul>
+<li>hash</li>
+</ul>
+<p>1.键值唯一，hash索引有绝对优势  查询效率高</p>
+<p>2.无法完成范围索引</p>
+<p>3.无法利用索引完成排序，以及like “xxx%” 模糊查询</p>
+<p>4.不支持多列联合索引</p>
+<p>5.因为hash碰撞问题，索引效率极低</p>
+<h2 id="常见面试题"><a href="#常见面试题" class="headerlink" title="常见面试题"></a>常见面试题</h2><ul>
+<li>聚簇索引和非聚簇索引的区别</li>
+</ul>
+<p>数据和索引组合   非聚簇索引索引和主键组合</p>
+<ul>
+<li>InnoDB为什么非主键索引结构叶子节点存储的是主键值而不是数据？</li>
+</ul>
+<p>存储代价 修改不易 减少磁盘IO  事务支持数据一致性维持难度</p>
+<ul>
+<li>为什么推荐使用整形的自增主键？</li>
+</ul>
+<p>整形  比较效率高</p>
+<p>自增 调整代价</p>
+<ul>
+<li>联合索引  多字段作为索引建立依据</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -245,366 +463,135 @@ var loadingTimer=self.setInterval(function clock()
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/tinybeer.github.io/2021/03/29/MySQL%E8%B0%83%E4%BC%98%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/tinybeer.github.io/2021/03/26/http%E4%B8%8Ehttps/" class="archive-article-date">
-  	<time datetime="2021-03-26T02:09:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-26</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/tinybeer.github.io/2021/03/26/http%E4%B8%8Ehttps/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">http与https</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#MySql%E6%9E%B6%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">MySql架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B5%E7%BB%93%E6%9E%84"><span class="toc-number">2.</span> <span class="toc-text">页结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%8C%E6%A0%BC%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">行格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95"><span class="toc-number">4.</span> <span class="toc-text">索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1"><span class="toc-number">5.</span> <span class="toc-text">事务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%94%E7%A6%BB%E6%80%A7%EF%BC%9A"><span class="toc-number">5.1.</span> <span class="toc-text">隔离性：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%94%81"><span class="toc-number">6.</span> <span class="toc-text">锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84"><span class="toc-number">7.</span> <span class="toc-text">树形结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-number">8.</span> <span class="toc-text">常见面试题</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-    	 
+        
+    </div>
+</aside>
+
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/tinybeer.github.io/2021/03/26/http%E4%B8%8Ehttps/">http与https</a>
-    </h1>
+    <div class="valine_comment"></div>
+<!--载入js，在</body>之前插入即可-->
+<!--Leancloud 操作库:-->
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<!--Valine 的核心代码库-->
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+  var notify = 'true' == true ? true : false;
+  var verify = 'false' == true ? true : false;
+  new Valine({
+      // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+      av: AV,
+      el: '.valine_comment',
+      emoticon_url: 'https://cloud.panjunwen.com/alu',
+      emoticon_list: ["狂汗.png","不说话.png","汗.png","坐等.png","献花.png","不高兴.png","中刀.png","害羞.png","皱眉.png","小眼睛.png","暗地观察.png"],
+      app_id: 'QtWnTwhkOYWejgmNJw1b6qER-gzGzoHsz',
+      app_key: '6UVtpp0PRGdqJazGIj3lMhXP',
+      placeholder: '有话要说？'
+    });
+</script>
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/tinybeer.github.io/2021/03/26/cache2go%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2021-03-25T16:43:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/tinybeer.github.io/2021/03/26/cache2go%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">cache2go学习笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/tinybeer.github.io/2021/03/20/Redis%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2021-03-20T13:42:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/tinybeer.github.io/2021/03/20/Redis%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0/">Redis深入学习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/tinybeer.github.io/2021/03/19/MySql%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2021-03-19T09:47:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/tinybeer.github.io/2021/03/19/MySql%E5%AD%A6%E4%B9%A0/">MySql深入学习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/tinybeer.github.io/2021/03/19/Gorm%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2021-03-19T09:12:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/tinybeer.github.io/2021/03/19/Gorm%E5%AD%A6%E4%B9%A0/">Gorm学习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/tinybeer.github.io/2021/03/18/Nodejs-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2021-03-18T03:58:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/tinybeer.github.io/2021/03/18/Nodejs-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Node.js 学习笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/tinybeer.github.io/2021/03/16/Vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2021-03-16T04:30:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/tinybeer.github.io/2021/03/16/Vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Vue学习笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/tinybeer.github.io/2021/03/12/Redis%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BD%BF%E7%94%A8%E7%9A%84%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2021-03-12T15:43:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/tinybeer.github.io/2021/03/12/Redis%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BD%BF%E7%94%A8%E7%9A%84%E5%85%A5%E9%97%A8/">Redis数据库使用的入门</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/tinybeer.github.io/2021/03/11/jQuery%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2021-03-11T09:33:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/tinybeer.github.io/2021/03/11/jQuery%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">jQuery学习笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/tinybeer.github.io/archives/2021/03/page/2/">2</a><a class="extend next" rel="next" href="/tinybeer.github.io/archives/2021/03/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
+  
+
+  
 
           </div>
         </div>
@@ -637,8 +624,8 @@ var loadingTimer=self.setInterval(function clock()
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
