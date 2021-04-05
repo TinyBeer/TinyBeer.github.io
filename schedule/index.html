@@ -21,20 +21,17 @@
     var CONFIG = {"hostname":"tinybeer.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"right","width":300,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="​        随着交互式Web应用的兴起，像在线购物网站，需要登录的网站等等，马上就面临一个问题，那就是要管理会话，必须知道哪些访问时哪些人发起的。因为HTTP请求是无状态的，所以想出的办法就是给大家发一个会话标识, 说白了就是一个的字串，每个人收到的都不一样， 每次大家向我发起HTTP请求的时候，把这个字符串给一并捎过来， 这样我就能区分开谁是谁了。 ​        然而，一个解决方案解决">
-<meta property="og:type" content="article">
-<meta property="og:title" content="cookie&amp;session&amp;token">
-<meta property="og:url" content="https://tinybeer.github.io/2021/03/29/cookie-session-token/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="schedule">
+<meta property="og:url" content="https://tinybeer.github.io/schedule/index.html">
 <meta property="og:site_name" content="困">
-<meta property="og:description" content="​        随着交互式Web应用的兴起，像在线购物网站，需要登录的网站等等，马上就面临一个问题，那就是要管理会话，必须知道哪些访问时哪些人发起的。因为HTTP请求是无状态的，所以想出的办法就是给大家发一个会话标识, 说白了就是一个的字串，每个人收到的都不一样， 每次大家向我发起HTTP请求的时候，把这个字符串给一并捎过来， 这样我就能区分开谁是谁了。 ​        然而，一个解决方案解决">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-03-29T00:57:06.000Z">
-<meta property="article:modified_time" content="2021-03-29T00:57:38.975Z">
+<meta property="article:published_time" content="2021-04-05T20:06:38.000Z">
+<meta property="article:modified_time" content="2021-04-05T20:06:38.324Z">
 <meta property="article:author" content="Tiny Beer">
-<meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://tinybeer.github.io/2021/03/29/cookie-session-token/">
+<link rel="canonical" href="https://tinybeer.github.io/schedule/">
 
 
 <script id="page-configurations">
@@ -42,12 +39,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'en'
   };
 </script>
 
-  <title>cookie&session&token | 困</title>
+  <title>schedule | 困
+</title>
   
 
 
@@ -187,153 +185,43 @@
       <div class="main-inner">
         <div class="content-wrap">
           
+  
+  
 
-          <div class="content post posts-expand">
+          <div class="content page posts-expand">
             
 
     
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://tinybeer.github.io/2021/03/29/cookie-session-token/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://img.imgdb.cn/item/6048d2685aedab222c85ee27.jpg">
-      <meta itemprop="name" content="Tiny Beer">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="困">
-    </span>
+    
+    
+    <div class="post-block" lang="en">
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          cookie&session&token
-        </h1>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
+<h1 class="post-title" itemprop="name headline">schedule
+</h1>
 
-              <time title="Created: 2021-03-29 08:57:06 / Modified: 08:57:38" itemprop="dateCreated datePublished" datetime="2021-03-29T08:57:06+08:00">2021-03-29</time>
-            </span>
+<div class="post-meta">
+  
 
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.5k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
+</div>
 
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+</header>
 
       
-        <p>​        随着交互式Web应用的兴起，像在线购物网站，需要登录的网站等等，马上就面临一个问题，那就是要管理会话，必须知道哪些访问时哪些人发起的。因为HTTP请求是无状态的，所以想出的办法就是给大家发一个会话标识, 说白了就是一个的字串，每个人收到的都不一样， 每次大家向我发起HTTP请求的时候，把这个字符串给一并捎过来， 这样我就能区分开谁是谁了。</p>
-<p>​        然而，一个解决方案解决了老问题，往往会引出新问题，在解决这些问题的过程中，才有了cookie、session、token等的诞生。</p>
-<span id="more"></span>
-
-<h1 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h1><p>HTTP cookie，也叫Web cookie或浏览器cookie，是服务器发送到用户浏览器并保存到本地的一小块数据，它会在下次访问浏览器的时候与请求一同返回给服务器。通常它用于告知服务器请求是否来源于同一用户(浏览器),cookie使得无状态的HTTP协议记录稳定状态成为可能。</p>
-<h2 id="cookie作用"><a href="#cookie作用" class="headerlink" title="cookie作用"></a>cookie作用</h2><ol>
-<li>会话状态管理：如用户状态、购物车、游戏分数或者其他需要记录的信息</li>
-<li>个性化设置：如自定义设置、主题等</li>
-<li>浏览器行为跟踪：如跟踪分析用户行为</li>
-</ol>
-<p>​        cookie曾经一度用于用户数据的存储，因为没有其他手段可以使用，但是随着浏览器支持各式各样的存储方式，cookie逐渐被淘汰。由于每次访问服务器都会传送cookie，一些浏览器api以及允许开发者直接将数据存储到本地，如使用Web Storage API或IndexedDB</p>
-<h2 id="cookie版本"><a href="#cookie版本" class="headerlink" title="cookie版本"></a>cookie版本</h2><ul>
-<li>网景版cookie</li>
-</ul>
-<p>网景公司技术员发明了cookie，并制定了相关的规格标准</p>
-<ul>
-<li>RFC2109版</li>
-</ul>
-<p>网景竞争对手以网景版cookie为基础优化出来的版本。</p>
-<ul>
-<li>RFC 2965版 cookie</li>
-</ul>
-<p>定义了cookie的扩展版本，新增了Set-Cookie2首部和Cookie2首部</p>
-<ul>
-<li>RFC 6265版 cookie</li>
-</ul>
-<p>以网景公司的cookie标准作为业界事实标准，重新定义cookie标准后的产物</p>
-<ul>
-<li>目前主流的cookie版本</li>
-</ul>
-<p>目前使用最广泛的cookie版本，也是在网景版cookie基础上扩充而来的。</p>
-<h2 id="cookie创建"><a href="#cookie创建" class="headerlink" title="cookie创建"></a>cookie创建</h2><p>使用函数在返回数据首部添加Set-Cookie首部，后跟cookie数据项</p>
-<p>每一个cookie仅能保存一条数据，并且cookie的大小有限制。</p>
-<h2 id="cookie的类型"><a href="#cookie的类型" class="headerlink" title="cookie的类型"></a>cookie的类型</h2><ul>
-<li>会话型cookie：存放于浏览器内存中，关闭浏览器后会清除</li>
-<li>持久性cookie：不会随着浏览器关闭销毁</li>
-<li>第三方cookie：用户浏览器和web服务器之外的cookie提供方，如果cookie的域和浏览器的域不相同，称为第三方cookie,一般用于追踪。</li>
-</ul>
-<h2 id="cookie属性"><a href="#cookie属性" class="headerlink" title="cookie属性"></a>cookie属性</h2><ul>
-<li>Name：属性名</li>
-<li>Value：cookie值</li>
-<li>Secure：只能使用https传输</li>
-<li>HttpOnly：用于防止脚本读取cookie</li>
-<li>Domain：cookie所作用的域名(主机)，子域名可以访问</li>
-<li>Path：指定可以访问的路径</li>
-<li>SameSite：允许服务器要求在跨站请求时不发送cookie。值：None，Strict，Lax(默认)</li>
-</ul>
-<h1 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h1><p>类似于cookie，但保存于服务端，一定程度上解决了不安全隐患。带来了session同步问题(分布式系统)</p>
-<p><strong>解决方案：</strong></p>
-<p>1）使用分布式数据库。    影响性能</p>
-<p>2）使用cookie记录sessionID，不安全</p>
-<p>3）固定用户方式 IP，用户ID等</p>
-<h1 id="Token"><a href="#Token" class="headerlink" title="Token"></a>Token</h1><p>可以解决跨域问题。JWT(josn web token)服务器工具用户信息生成的一串json数据，有时限。</p>
-<p>access_token：时限相对较短，一般一分钟为单位</p>
-<p>refresh_token：时限相对较长，一般一天为单位</p>
-<p>使用refresh_token获取新的access_token</p>
-<p>refresh_token失效后需要进行重新登录。</p>
-
+      
+      
+      <div class="post-body">
+          
+      </div>
+      
+      
+      
     </div>
+    
 
     
     
     
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"># 学习笔记</a>
-          </div>
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2021/03/29/%E5%88%9D%E8%AF%86%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/" rel="prev" title="初识布隆过滤器">
-      <i class="fa fa-chevron-left"></i> 初识布隆过滤器
-    </a></div>
-      <div class="post-nav-item"></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
 
 
           </div>
@@ -385,7 +273,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#cookie"><span class="nav-number">1.</span> <span class="nav-text">cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie%E4%BD%9C%E7%94%A8"><span class="nav-number">1.1.</span> <span class="nav-text">cookie作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie%E7%89%88%E6%9C%AC"><span class="nav-number">1.2.</span> <span class="nav-text">cookie版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie%E5%88%9B%E5%BB%BA"><span class="nav-number">1.3.</span> <span class="nav-text">cookie创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.4.</span> <span class="nav-text">cookie的类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie%E5%B1%9E%E6%80%A7"><span class="nav-number">1.5.</span> <span class="nav-text">cookie属性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Session"><span class="nav-number">2.</span> <span class="nav-text">Session</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Token"><span class="nav-number">3.</span> <span class="nav-text">Token</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -544,7 +431,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'tinybeer.github.io',
       owner       : 'tinybeer',
       admin       : ['tinybeer'],
-      id          : '47d45a7258ab426c8d1d55bd3067ead2',
+      id          : 'b9e1b6fa707f630bcc50d21ef0899554',
         language: 'zh-CN',
       distractionFreeMode: true
     });
