@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"tinybeer.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="​        由于目前Go开源社区已经有许多优秀的Web框架，如Gin框架、Beego框架、Iris框架、Echo框架等。此处仅就使用官方包实现http&#x2F;https进行简单尝试，旨在了解http&#x2F;https实现流程，了解二者异同点。如需深入探究，可以直接产出参考文献。">
+  <meta name="description" content="&amp;emsp;&amp;emsp;由于目前Go开源社区已经有许多优秀的Web框架，如Gin框架、Beego框架、Iris框架、Echo框架等。此处仅就使用官方包实现http&#x2F;https进行简单尝试，旨在了解http&#x2F;https实现流程，了解二者异同点。如需深入探究，可以直接产出参考文献。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="原生GoWeb实现">
 <meta property="og:url" content="https://tinybeer.github.io/2021/04/09/%E5%8E%9F%E7%94%9FGoWeb%E5%AE%9E%E7%8E%B0/index.html">
 <meta property="og:site_name" content="困">
-<meta property="og:description" content="​        由于目前Go开源社区已经有许多优秀的Web框架，如Gin框架、Beego框架、Iris框架、Echo框架等。此处仅就使用官方包实现http&#x2F;https进行简单尝试，旨在了解http&#x2F;https实现流程，了解二者异同点。如需深入探究，可以直接产出参考文献。">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;由于目前Go开源社区已经有许多优秀的Web框架，如Gin框架、Beego框架、Iris框架、Echo框架等。此处仅就使用官方包实现http&#x2F;https进行简单尝试，旨在了解http&#x2F;https实现流程，了解二者异同点。如需深入探究，可以直接产出参考文献。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-04-09T11:14:13.000Z">
-<meta property="article:modified_time" content="2021-04-09T11:16:05.628Z">
+<meta property="article:modified_time" content="2021-04-09T12:12:11.832Z">
 <meta property="article:author" content="Tiny Beer">
 <meta property="article:tag" content="随笔">
 <meta name="twitter:card" content="summary">
@@ -219,7 +219,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-04-09 19:14:13 / Modified: 19:16:05" itemprop="dateCreated datePublished" datetime="2021-04-09T19:14:13+08:00">2021-04-09</time>
+              <time title="Created: 2021-04-09 19:14:13 / Modified: 20:12:11" itemprop="dateCreated datePublished" datetime="2021-04-09T19:14:13+08:00">2021-04-09</time>
             </span>
 
           <br>
@@ -247,12 +247,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>​        由于目前Go开源社区已经有许多优秀的Web框架，如Gin框架、Beego框架、Iris框架、Echo框架等。此处仅就使用官方包实现http/https进行简单尝试，旨在了解http/https实现流程，了解二者异同点。如需深入探究，可以直接产出参考文献。</p>
+        <p>&emsp;&emsp;由于目前Go开源社区已经有许多优秀的Web框架，如Gin框架、Beego框架、Iris框架、Echo框架等。此处仅就使用官方包实现http/https进行简单尝试，旨在了解http/https实现流程，了解二者异同点。如需深入探究，可以直接产出参考文献。</p>
 <span id="more"></span>
 
 <h1 id="创建http-https服务"><a href="#创建http-https服务" class="headerlink" title="创建http/https服务"></a>创建http/https服务</h1><h2 id="创建http服务"><a href="#创建http服务" class="headerlink" title="创建http服务"></a>创建http服务</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="comment">// 注册hanlderFunc</span></span><br><span class="line">  http.HandleFunc(<span class="string">&quot;/&quot;</span>, sayHello)</span><br><span class="line">  <span class="comment">// 实现接口</span></span><br><span class="line">  http.Handle(<span class="string">&quot;/myhandler&quot;</span>, &amp;handler.MyHandler&#123;&#125;)</span><br><span class="line">  err := http.ListenAndServeTLS(<span class="string">&quot;:80&quot;</span>, <span class="literal">nil</span>)</span><br><span class="line">  <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">    log.Fatal(err.Error())</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sayHello</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">  fmt.Fprintln(w, <span class="string">&quot;this is a template&quot;</span>, r.URL.Path)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="创建https服务"><a href="#创建https服务" class="headerlink" title="创建https服务"></a>创建https服务</h2><h3 id="准备证书和私钥"><a href="#准备证书和私钥" class="headerlink" title="准备证书和私钥"></a>准备证书和私钥</h3><p>​        开启https需要相应的证书和密钥。主要有单向验证和双向验证两种方式。此处简单演示使用，openssl自签证书，实现单向验证。</p>
+<h2 id="创建https服务"><a href="#创建https服务" class="headerlink" title="创建https服务"></a>创建https服务</h2><h3 id="准备证书和私钥"><a href="#准备证书和私钥" class="headerlink" title="准备证书和私钥"></a>准备证书和私钥</h3><p>&emsp;&emsp;开启https需要相应的证书和密钥。主要有单向验证和双向验证两种方式。此处简单演示使用，openssl自签证书，实现单向验证。</p>
 <p>openssl<span class="exturl" data-url="aHR0cDovL3NscHJvd2ViLmNvbS9wcm9kdWN0cy9XaW4zMk9wZW5TU0wuaHRtbA==" title="http://slproweb.com/products/Win32OpenSSL.html">下载地址<i class="fa fa-external-link"></i></span> <span class="exturl" data-url="aHR0cDovL3NscHJvd2ViLmNvbS9wcm9kdWN0cy9XaW4zMk9wZW5TU0wuaHRtbA==" title="http://slproweb.com/products/Win32OpenSSL.html">http://slproweb.com/products/Win32OpenSSL.html<i class="fa fa-external-link"></i></span></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out server.key 2048</span><br></pre></td></tr></table></figure>
 
@@ -310,7 +310,7 @@
 <li>5xx服务端错误 </li>
 </ul>
 <p>常见：200 404 500 302</p>
-<h1 id="HTTPS协议介绍"><a href="#HTTPS协议介绍" class="headerlink" title="HTTPS协议介绍"></a>HTTPS协议介绍</h1><p>​        HTTPS 的信任基于预先安装在操作系统中的证书颁发机构（CA）。因此，到一个网站的 HTTPS 连接仅在这些情况下可被信任：</p>
+<h1 id="HTTPS协议介绍"><a href="#HTTPS协议介绍" class="headerlink" title="HTTPS协议介绍"></a>HTTPS协议介绍</h1><p>&emsp;&emsp;HTTPS 的信任基于预先安装在操作系统中的证书颁发机构（CA）。因此，到一个网站的 HTTPS 连接仅在这些情况下可被信任：</p>
 <ul>
 <li>浏览器正确地实现了 HTTPS 且操作系统中安装了正确且受信任的证书颁发机构；</li>
 <li>证书颁发机构仅信任合法的网站；</li>
@@ -349,17 +349,17 @@
 
 <h2 id="with"><a href="#with" class="headerlink" title="with"></a>with</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;with pipeline&#125;&#125; T1 &#123;&#123;end&#125;&#125;</span><br><span class="line">如果pipeline为empty不产生输出，否则将dot设为pipeline的值并执行T1。不修改外面的dot。</span><br><span class="line"></span><br><span class="line">&#123;&#123;with pipeline&#125;&#125; T1 &#123;&#123;else&#125;&#125; T0 &#123;&#123;end&#125;&#125;</span><br><span class="line">如果pipeline为empty，不改变dot并执行T0，否则dot设为pipeline的值并执行T1。</span><br></pre></td></tr></table></figure>
 
-<h2 id="预定义函数"><a href="#预定义函数" class="headerlink" title="预定义函数"></a>预定义函数</h2><p>执行模板时，函数从两个函数字典中查找：首先是模板函数字典，然后是全局函数字典。一般不在模板内定义函数，而是使用Funcs方法添加函数到模板里。</p>
+<h2 id="预定义函数"><a href="#预定义函数" class="headerlink" title="预定义函数"></a>预定义函数</h2><p>&emsp;&emsp;执行模板时，函数从两个函数字典中查找：首先是模板函数字典，然后是全局函数字典。一般不在模板内定义函数，而是使用Funcs方法添加函数到模板里。</p>
 <p>预定义的全局函数如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">and</span><br><span class="line">    函数返回它的第一个empty参数或者最后一个参数；</span><br><span class="line">    就是说&quot;and x y&quot;等价于&quot;if x then y else x&quot;；所有参数都会执行；</span><br><span class="line">or</span><br><span class="line">    返回第一个非empty参数或者最后一个参数；</span><br><span class="line">    亦即&quot;or x y&quot;等价于&quot;if x then x else y&quot;；所有参数都会执行；</span><br><span class="line">not</span><br><span class="line">    返回它的单个参数的布尔值的否定</span><br><span class="line">len</span><br><span class="line">    返回它的参数的整数类型长度</span><br><span class="line">index</span><br><span class="line">    执行结果为第一个参数以剩下的参数为索引&#x2F;键指向的值；</span><br><span class="line">    如&quot;index x 1 2 3&quot;返回x[1][2][3]的值；每个被索引的主体必须是数组、切片或者字典。</span><br><span class="line">print</span><br><span class="line">    即fmt.Sprint</span><br><span class="line">printf</span><br><span class="line">    即fmt.Sprintf</span><br><span class="line">println</span><br><span class="line">    即fmt.Sprintln</span><br><span class="line">html</span><br><span class="line">    返回与其参数的文本表示形式等效的转义HTML。</span><br><span class="line">    这个函数在html&#x2F;template中不可用。</span><br><span class="line">urlquery</span><br><span class="line">    以适合嵌入到网址查询中的形式返回其参数的文本表示的转义值。</span><br><span class="line">    这个函数在html&#x2F;template中不可用。</span><br><span class="line">js</span><br><span class="line">    返回与其参数的文本表示形式等效的转义JavaScript。</span><br><span class="line">call</span><br><span class="line">    执行结果是调用第一个参数的返回值，该参数必须是函数类型，其余参数作为调用该函数的参数；</span><br><span class="line">    如&quot;call .X.Y 1 2&quot;等价于go语言里的dot.X.Y(1, 2)；</span><br><span class="line">    其中Y是函数类型的字段或者字典的值，或者其他类似情况；</span><br><span class="line">    call的第一个参数的执行结果必须是函数类型的值（和预定义函数如print明显不同）；</span><br><span class="line">    该函数类型值必须有1到2个返回值，如果有2个则后一个必须是error接口类型；</span><br><span class="line">    如果有2个返回值的方法返回的error非nil，模板执行会中断并返回给调用模板执行者该错误；</span><br></pre></td></tr></table></figure>
 
 <h2 id="比较函数"><a href="#比较函数" class="headerlink" title="比较函数"></a>比较函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">eq      如果arg1 &#x3D;&#x3D; arg2则返回真</span><br><span class="line">ne      如果arg1 !&#x3D; arg2则返回真</span><br><span class="line">lt      如果arg1 &lt; arg2则返回真</span><br><span class="line">le      如果arg1 &lt;&#x3D; arg2则返回真</span><br><span class="line">gt      如果arg1 &gt; arg2则返回真</span><br><span class="line">ge      如果arg1 &gt;&#x3D; arg2则返回真</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#123;&#123;eq arg1 arg2 arg3&#125;&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="修改默认的标识符"><a href="#修改默认的标识符" class="headerlink" title="修改默认的标识符"></a>修改默认的标识符</h2><p>Go标准库的模板引擎使用的花括号<code>&#123;&#123;`和`&#125;&#125;</code>作为标识，而许多前端框架（如<code>Vue</code>和 <code>AngularJS</code>）也使用<code>&#123;&#123;`和`&#125;&#125;</code>作为标识符，所以当我们同时使用Go语言模板引擎和以上前端框架时就会出现冲突，这个时候我们需要修改标识符，修改前端的或者修改Go语言的。这里演示如何修改Go语言模板引擎默认的标识符：</p>
+<h2 id="修改默认的标识符"><a href="#修改默认的标识符" class="headerlink" title="修改默认的标识符"></a>修改默认的标识符</h2><p>&emsp;&emsp;Go标准库的模板引擎使用的花括号<code>&#123;&#123;`和`&#125;&#125;</code>作为标识，而许多前端框架（如<code>Vue</code>和 <code>AngularJS</code>）也使用<code>&#123;&#123;`和`&#125;&#125;</code>作为标识符，所以当我们同时使用Go语言模板引擎和以上前端框架时就会出现冲突，这个时候我们需要修改标识符，修改前端的或者修改Go语言的。这里演示如何修改Go语言模板引擎默认的标识符：</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">template.New(<span class="string">&quot;test&quot;</span>).Delims(<span class="string">&quot;&#123;[&quot;</span>, <span class="string">&quot;]&#125;&quot;</span>).ParseFiles(<span class="string">&quot;./t.tmpl&quot;</span>)</span><br></pre></td></tr></table></figure>
 
-<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>Go语言标准库之http/template <span class="exturl" data-url="aHR0cHM6Ly93d3cubGl3ZW56aG91LmNvbS9wb3N0cy9Hby9nb190ZW1wbGF0ZS8jYXV0b2lkLTEtMy0w" title="https://www.liwenzhou.com/posts/Go/go_template/#autoid-1-3-0">https://www.liwenzhou.com/posts/Go/go_template/#autoid-1-3-0<i class="fa fa-external-link"></i></span></p>
-<p>中文官方说明package template                      <span class="exturl" data-url="aHR0cHM6Ly9zdHVkeWdvbGFuZy5jb20vcGtnZG9j" title="https://studygolang.com/pkgdoc">https://studygolang.com/pkgdoc<i class="fa fa-external-link"></i></span></p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><span class="exturl" data-url="aHR0cHM6Ly93d3cubGl3ZW56aG91LmNvbS9wb3N0cy9Hby9nb190ZW1wbGF0ZS8jYXV0b2lkLTEtMy0w" title="https://www.liwenzhou.com/posts/Go/go_template/#autoid-1-3-0">Go语言标准库之http/template<i class="fa fa-external-link"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9zdHVkeWdvbGFuZy5jb20vcGtnZG9j" title="https://studygolang.com/pkgdoc">中文官方说明package template<i class="fa fa-external-link"></i></span>                     </p>
 
     </div>
 
