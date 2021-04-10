@@ -21,15 +21,20 @@
     var CONFIG = {"hostname":"tinybeer.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="困">
-<meta property="og:url" content="https://tinybeer.github.io/archives/2021/03/index.html">
+  <meta name="description" content="为什么会有拆包现象&amp;emsp;&amp;emsp;网络数据传输过程中，传输数据包的大小收到多方面因素限制，如MTU、MSS、滑动窗口等。如果一次要传输的数据量过大，就会进行包的拆分(也叫断包)。数据包到达后，可根据数据传输协议相关内容进行组包。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于拆包粘包问题的总结">
+<meta property="og:url" content="https://tinybeer.github.io/2021/04/10/%E5%85%B3%E4%BA%8E%E6%8B%86%E5%8C%85%E7%B2%98%E5%8C%85%E9%97%AE%E9%A2%98%E7%9A%84%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="困">
+<meta property="og:description" content="为什么会有拆包现象&amp;emsp;&amp;emsp;网络数据传输过程中，传输数据包的大小收到多方面因素限制，如MTU、MSS、滑动窗口等。如果一次要传输的数据量过大，就会进行包的拆分(也叫断包)。数据包到达后，可根据数据传输协议相关内容进行组包。">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-04-10T13:54:23.000Z">
+<meta property="article:modified_time" content="2021-04-10T13:56:38.898Z">
 <meta property="article:author" content="Tiny Beer">
+<meta property="article:tag" content="随笔">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://tinybeer.github.io/archives/2021/03/">
+<link rel="canonical" href="https://tinybeer.github.io/2021/04/10/%E5%85%B3%E4%BA%8E%E6%8B%86%E5%8C%85%E7%B2%98%E5%8C%85%E9%97%AE%E9%A2%98%E7%9A%84%E6%80%BB%E7%BB%93/">
 
 
 <script id="page-configurations">
@@ -37,12 +42,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Archive | 困</title>
+  <title>关于拆包粘包问题的总结 | 困</title>
   
 
 
@@ -183,239 +188,122 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 17 posts in total. Keep on posting.</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://tinybeer.github.io/2021/04/10/%E5%85%B3%E4%BA%8E%E6%8B%86%E5%8C%85%E7%B2%98%E5%8C%85%E9%97%AE%E9%A2%98%E7%9A%84%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://img.imgdb.cn/item/6048d2685aedab222c85ee27.jpg">
+      <meta itemprop="name" content="Tiny Beer">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="困">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          关于拆包粘包问题的总结
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-04-10 21:54:23 / Modified: 21:56:38" itemprop="dateCreated datePublished" datetime="2021-04-10T21:54:23+08:00">2021-04-10</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
-    </div>
+        <h2 id="为什么会有拆包现象"><a href="#为什么会有拆包现象" class="headerlink" title="为什么会有拆包现象"></a>为什么会有拆包现象</h2><p>&emsp;&emsp;网络数据传输过程中，传输数据包的大小收到多方面因素限制，如MTU、MSS、滑动窗口等。如果一次要传输的数据量过大，就会进行包的拆分(也叫断包)。数据包到达后，可根据数据传输协议相关内容进行组包。</p>
+<span id="more"></span>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-03-29T08:57:06+08:00"
-              content="2021-03-29">
-          03-29
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/03/29/cookie-session-token/" itemprop="url">
-            <span itemprop="name">cookie&session&token</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-03-29T08:43:48+08:00"
-              content="2021-03-29">
-          03-29
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/03/29/%E5%88%9D%E8%AF%86%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/" itemprop="url">
-            <span itemprop="name">初识布隆过滤器</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-03-29T08:37:45+08:00"
-              content="2021-03-29">
-          03-29
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/03/29/Vue%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" itemprop="url">
-            <span itemprop="name">Vue环境搭建</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-03-29T08:27:24+08:00"
-              content="2021-03-29">
-          03-29
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/03/29/MySQL%E8%B0%83%E4%BC%98%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/" itemprop="url">
-            <span itemprop="name">MySQL调优相关知识</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-03-26T10:09:25+08:00"
-              content="2021-03-26">
-          03-26
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/03/26/http%E4%B8%8Ehttps/" itemprop="url">
-            <span itemprop="name">http与https</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-03-26T00:43:29+08:00"
-              content="2021-03-26">
-          03-26
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/03/26/cache2go%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url">
-            <span itemprop="name">cache2go学习笔记</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-03-20T21:42:49+08:00"
-              content="2021-03-20">
-          03-20
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/03/20/Redis%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0/" itemprop="url">
-            <span itemprop="name">Redis深入学习</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-03-19T17:47:15+08:00"
-              content="2021-03-19">
-          03-19
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/03/19/MySql%E5%AD%A6%E4%B9%A0/" itemprop="url">
-            <span itemprop="name">MySql深入学习</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-03-19T17:12:42+08:00"
-              content="2021-03-19">
-          03-19
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/03/19/Gorm%E5%AD%A6%E4%B9%A0/" itemprop="url">
-            <span itemprop="name">Gorm学习</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-03-18T11:58:57+08:00"
-              content="2021-03-18">
-          03-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/03/18/Nodejs-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url">
-            <span itemprop="name">Node.js 学习笔记</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+<h2 id="为什么会有粘包现象"><a href="#为什么会有粘包现象" class="headerlink" title="为什么会有粘包现象"></a>为什么会有粘包现象</h2><p>&emsp;&emsp;TCP传输发生粘包根源于<span class="exturl" data-url="aHR0cHM6Ly9iYWlrZS5iYWlkdS5jb20vaXRlbS9OYWdsZSVFNyVBRSU5NyVFNiVCMyU5NS81NjQ1MTcyP2ZyPWFsYWRkaW4=" title="https://baike.baidu.com/item/Nagle%E7%AE%97%E6%B3%95/5645172?fr=aladdin">Nagle算法<i class="fa fa-external-link"></i></span>。Nagle算法主要用于解决频繁传输小数据包而带来的网络拥塞问题。由于每次数据传输都需要携带IP首部、TCP首部等数据，频繁的传输小数据包，会使得数据传输时有效数据率下降。Nagle解决这一问题的方法可以理解为批量发送，可以简单理解为尽可能使得小数据包构成大数据发送，从而获得较高的有效数据率。</p>
+<p>&emsp;&emsp;由于小数据包在传输之前需要等待查看是否能和后续包组合，由此会产生一定的网络延迟。此外，数据包之间的组合还会造成包与包之间的粘连，也就是粘包现象。</p>
+<p>&emsp;&emsp;UDP默认为一种一对多的传输模式，是没有使用Nagle算法的，故不存在粘包问题。</p>
+<h2 id="造成的问题"><a href="#造成的问题" class="headerlink" title="造成的问题"></a>造成的问题</h2><p>&emsp;&emsp;拆包粘包现象，会造成接收方在读取到数据包时，无法确认数据包是否完整，数据包中那一部分时自己需要等的等问题，进而无法顺利的进行数据处理。</p>
+<h2 id="问题的解决"><a href="#问题的解决" class="headerlink" title="问题的解决"></a>问题的解决</h2><ul>
+<li>禁用Nagle算法—-最简单粗暴的办法</li>
+</ul>
+<p>&emsp;&emsp;在Linux中默认是开启Nagle优化算法的，在大量小数据包的场景下可以有效的降低网络开销。对于一些希望获得及时响应的场景，可以是通过Linux提供的<strong>TCP_NODELAY</strong>参数禁用Nagle。Netty中为了是数据传输延迟最小化，就默认禁用了Nagle算法。</p>
+<p>&emsp;&emsp;此方法可以有效的解决粘包问题，提高数据响应速度。但也会对网络带来一定的压力。</p>
+<ul>
+<li>定义应用层通信协议</li>
+</ul>
+<p>&emsp;&emsp;这个方法相对第一种，更加复杂，灵活度也更大。主流协议解决方方案：</p>
+<p><strong>消息长度固定</strong>     接收到固定长度的报文后，视为就受到完整数据。</p>
+<p>&emsp;&emsp;消息定长法使用非常简单，缺点也很明显，无法适应变长包的情况。固定长度过大，会造成带宽浪费、过小又不能适应大数据包传输。</p>
+<p><strong>特定分隔符</strong> 接收方根据特殊分隔符分割数据包</p>
+<p>&emsp;&emsp;在设置分隔符时要尽量避免与消息体内字符发生冲突。特定分隔符法在消息协议足够简单的情况下比较高效(协议代价低)。如：Redis中就使用换行符作为数据分割。</p>
+<p><strong>消息长度+消息内容</strong>  项目开发中最长用的方式。</p>
+<p>&emsp;&emsp;消息长度+消息内容的使用方式非常灵活。例如，使用4字节的int记录消息内容长度，消息内容紧随其后。读取消息时先获取4字节的消息内容长度，然后根据内容长度获取消息内容。可以理解为消息固定长度的一种变体。</p>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag"># 随笔</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/04/09/%E5%8E%9F%E7%94%9FGoWeb%E5%AE%9E%E7%8E%B0/" rel="prev" title="原生GoWeb实现">
+      <i class="fa fa-chevron-left"></i> 原生GoWeb实现
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2021/03/page/2/">2</a><a class="extend next" rel="next" href="/archives/2021/03/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
-  </nav>
+  
+  
 
 
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -462,6 +350,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E6%9C%89%E6%8B%86%E5%8C%85%E7%8E%B0%E8%B1%A1"><span class="nav-number">1.</span> <span class="nav-text">为什么会有拆包现象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E6%9C%89%E7%B2%98%E5%8C%85%E7%8E%B0%E8%B1%A1"><span class="nav-number">2.</span> <span class="nav-text">为什么会有粘包现象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%A0%E6%88%90%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">造成的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3"><span class="nav-number">4.</span> <span class="nav-text">问题的解决</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -670,6 +559,25 @@ window.addEventListener('pjax:success', () => {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '5f2f480c8a8d2b57b594',
+      clientSecret: 'ca1d4dab6206dadbfaac987cac186fa57e1b0b21',
+      repo        : 'tinybeer.github.io',
+      owner       : 'tinybeer',
+      admin       : ['tinybeer'],
+      id          : 'dbfbf89fb5e5182afca99e05382c9f8e',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
 
     </div>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
