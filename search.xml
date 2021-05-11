@@ -107,7 +107,7 @@
   <entry>
     <title>Go中的空结构体</title>
     <url>/2021/05/11/Go%E4%B8%AD%E7%9A%84%E7%A9%BA%E7%BB%93%E6%9E%84%E4%BD%93/</url>
-    <content><![CDATA[<p>&emsp;Golang 正常的 <code>struct</code> 就是普通的一个内存块，必定是占用一小块内存的，并且结构体的大小是要经过边界，长度的对齐的。然而，对于<code>struct&#123;&#125;</code>，Golang中的空结构体，却又者自己独特的特性。</p>
+    <content><![CDATA[<p>&emsp;Golang 正常的 <code>struct</code> 就是普通的一个内存块，必定是占用一小块内存的，并且结构体的大小是要经过边界，长度的对齐的。然而，对于<code>struct&#123;&#125;</code>，Golang中的空结构体，却有着自己独特的特性。</p>
 <span id="more"></span>
 
 <h1 id="空结构体的大小"><a href="#空结构体的大小" class="headerlink" title="空结构体的大小"></a>空结构体的大小</h1><p>&emsp;&emsp;在golang中我们常使用<code>unsafe.Sizeof</code>查看变量的字节大小。如下代码使用<code>unsafe.Sizeof</code>查看空struct的大小。</p>
