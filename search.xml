@@ -1214,6 +1214,8 @@
     <title>localhost&amp;&amp;127.0.0.1</title>
     <url>/2021/05/30/localhost-127-0-0-1/</url>
     <content><![CDATA[<p>&emsp;&emsp;localhost和127.0.0.1有区别吗？如果有，那么区别是什么？</p>
+<span id="more"></span>
+
 <p>&emsp;&emsp;答案是有区别。</p>
 <h1 id="区别一："><a href="#区别一：" class="headerlink" title="区别一："></a>区别一：</h1><p>&emsp;&emsp;localhost正确的解释是本地服务器，在windows等系统的正确解释是:本机地址(本机服务器) ，他们的解析通过本机的host文件，windows自动将localhost解析为127.0.0.1 。</p>
 <h1 id="区别二："><a href="#区别二：" class="headerlink" title="区别二："></a>区别二：</h1><p>&emsp;&emsp;localhost是不经过网卡的！它不会受到 网卡和防火墙的限制。而127.0.0.1是通过网卡传输的，依赖网卡，并受到网络防火墙的限制。本机ip也是通过网卡传输的。（但是本机IP与127.0.0.1的区别是： 127.0.0.1 只能通过本机访问，而本机IP通过本机访问也能通过外部访问  ）</p>
